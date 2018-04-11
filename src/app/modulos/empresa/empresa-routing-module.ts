@@ -3,19 +3,14 @@ import { ConfiguracionComponent } from './configuracion/configuracion.component'
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const empresaRoutes: Routes = <Routes>[
+const empresaRoutes: Routes =[
   {
     path: '',
-    component: ConfiguracionComponent,
+    component: EmpresaComponenteComponent,
     children: [
-      {
-        path: '',
-        children: [
-          {path: 'configuracion', component: ConfiguracionComponent},
-          {path: '', redirectTo: 'configuracion', pathMatch: 'full'},
-          {path: '**', component: ConfiguracionComponent}
-        ]
-      }
+        {path: 'configuracion', component: ConfiguracionComponent},
+        {path: '', redirectTo: 'configuracion', pathMatch: 'full'},
+        {path: '**', component: ConfiguracionComponent}
     ]
   }
 ];

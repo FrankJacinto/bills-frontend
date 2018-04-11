@@ -9,8 +9,10 @@ import { EmpresaComponenteComponent } from './empresa-componente/empresa-compone
   imports: [
     CommonModule,
     EmpresaRoutingModule
-
   ],
-  declarations: [ConfiguracionComponent, EmpresaComponenteComponent]
+  declarations: [
+    ConfiguracionComponent,
+    EmpresaComponenteComponent
+  ]
 })
 export class EmpresaModule { }
