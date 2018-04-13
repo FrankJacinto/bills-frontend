@@ -9,7 +9,7 @@ const routes : Routes = [
 	{ path: 'welcome', loadChildren: 'app/modulos/welcome/welcome.module#WelcomeModule' },
 	{ path :'admin', loadChildren: 'app/modulos/admin/admin.module#AdminModule'},
 	{ path :'empresa',loadChildren: 'app/modulos/empresa/empresa.module#EmpresaModule'},
-	{ path: '', redirectTo: '/login', pathMatch: 'full' },
+	{ path: '', redirectTo: '/welcome', pathMatch: 'full' },
 	{ path: '**', component: LoginComponent }
 ];
 

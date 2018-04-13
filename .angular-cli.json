@@ -19,9 +19,24 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/font-awesome/css/font-awesome.css",
+        "tema/vendor/owl.carousel/assets/owl.carousel.min.css",
+        "tema/css/style.blue.css",
+        "tema/css/style.min.css",
+        "../node_modules/ngx-toastr/toastr.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
+        "../node_modules/popper.js/dist/umd/popper.min.js",
+        "../node_modules/bootstrap/dist/js/bootstrap.min.js",
+        "tema/vendor/owl.carousel/owl.carousel.min.js",
+        "tema/js/front.js",
+        "../node_modules/pace-progress/pace.min.js",
+        "../node_modules/perfect-scrollbar/dist/perfect-scrollbar.min.js",
+        "../node_modules/@coreui/coreui/dist/js/coreui.min.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",
