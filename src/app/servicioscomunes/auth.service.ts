@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { ApiRequestService } from './api-request.service';
 import { LS } from '../constantes/app-constants';
 import 'rxjs/add/operator/toPromise';
+import {ToastrService} from 'ngx-toastr';
 
 export interface AuthSolicitudParam {
     username: string;
@@ -36,10 +37,11 @@ export class AuthService {
 
     constructor(
         private router: Router,
-        private apiRequest: ApiRequestService
+        private apiRequest: ApiRequestService,
+        private toastr: ToastrService
     ) { }
 
-    ingresar(username: string, password: string): Promise<AuthRespuesta> {
+    ingresar(username: string, password: string) {
         let bodyData: AuthSolicitudParam = {
             'username': username,
             'password': password,
@@ -48,7 +50,7 @@ export class AuthService {
         return this.apiRequest.post('session', bodyData)
             .then(
                 jsonResp => {
-                if (jsonResp !== undefined && jsonResp.item !== null && jsonResp.estadoOperacion === "EXITO") {
+                if (jsonResp && jsonResp.item !== null && jsonResp.estadoOperacion === "EXITO") {
                     authRespuesta = {
                         "success": true,
                         "mensaje": jsonResp.operacionMensaje,
@@ -64,6 +66,7 @@ export class AuthService {
                     this.almacenamiento.setItem(this.usuarioActualKey, JSON.stringify(authRespuesta.user));
                 }
                 else {
+                    this.toastr.error('Usuario o clave incorrecta', 'Error');
                     this.cerrarSession();
                     authRespuesta = {
                         "success": false,
@@ -76,8 +79,16 @@ export class AuthService {
             .catch(err => this.handleError(err));
     }
 
-    private handleError(error: any): Promise<any> {
-      return Promise.reject(error.message || error);
+    private handleError(error: any) {
+      switch (error.status) {
+        case 401:
+        case 403:
+          this.toastr.error('Usuario o clave incorrecta', 'Error');
+          break;
+        default:
+          this.toastr.error('Error interno', 'Error');
+          break;
+      }
     }
 
     cerrarSession(): void {
