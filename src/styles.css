@@ -2,3 +2,6 @@
 .app-footer {
   padding: 1rem 1rem!important;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
