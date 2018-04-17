@@ -35,8 +35,10 @@ export class LoginComponent implements OnInit {
 
   ingresar() {
     this.cargando = true;
-    this.authService.ingresar(this.user.username, this.user.password);
-    console.log("se logueo");
+    this.authService.ingresar(this.user.username, this.user.password)
+      .then( rpta => {
+        this.cargando = false;
+      });
   }
 
   /*
