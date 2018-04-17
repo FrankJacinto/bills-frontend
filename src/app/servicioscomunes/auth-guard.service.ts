@@ -18,7 +18,7 @@ export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad 
     canLoad(route: Route): boolean {
 	    let url = `/${route.path}`;
 	    return this.checkLogin(url);
-	}
+	  }
 
     canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
         return this.canActivate(route, state);
@@ -28,8 +28,7 @@ export class AuthGuardService implements CanActivate, CanActivateChild, CanLoad 
         if (this.authService.hayToken()) {
             return true;
         }
-        this.authService.urlDestino = url;
-        this.router.navigate(['login']);
+        this.router.navigate(['welcome']);
         return false;
     }
 }

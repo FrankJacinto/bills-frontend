@@ -89,11 +89,12 @@ export class ApiRequestService {
       if (error.status === 401 || error.status === 403) {
           sessionStorage.clear();
           localStorage.clear();
-          this.router.navigate(['login']);
+          this.router.navigate(['welcome']);
       }
       if(error.status === 404){
         console.error('página solicitada no se encuentra');
       }
       return Promise.reject(error.message || error);
     }
+
 }
