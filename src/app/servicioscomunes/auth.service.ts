@@ -37,7 +37,7 @@ export class AuthService {
         private toastr: ToastrService
     ) { }
 
-    ingresar(username: string, password: string) {
+    ingresar(username: string, password: string):any {
         let bodyData: AuthSolicitudParam = {
             'username': username,
             'password': password,
@@ -80,7 +80,7 @@ export class AuthService {
     }
 
     getUserName():string {
-        let objJWT: ObjetoJWT = JSON.parse(this.almacenamiento.getItem(this.usuarioActualKey));
+        let objJWT: ObjetoJWT = JSON.parse(localStorage.getItem(this.usuarioActualKey));
         if (objJWT !== null){
             return objJWT.userId
         }
@@ -88,7 +88,7 @@ export class AuthService {
     }
 
     getNombrecompleto():string{
-        let objJWT: ObjetoJWT = JSON.parse(this.almacenamiento.getItem(this.usuarioActualKey));
+        let objJWT: ObjetoJWT = JSON.parse(localStorage.getItem(this.usuarioActualKey));
         if (objJWT !== null && objJWT.nombrecompleto && objJWT.nombrecompleto!== " "){
             return objJWT.nombrecompleto
         }else {
@@ -97,7 +97,7 @@ export class AuthService {
     }
 
     getTipoUser():number {
-      let objJWT: ObjetoJWT = JSON.parse(this.almacenamiento.getItem(this.usuarioActualKey));
+      let objJWT: ObjetoJWT = JSON.parse(localStorage.getItem(this.usuarioActualKey));
       if (objJWT !== null){
         return objJWT.tipoUsuario;
       }
@@ -105,11 +105,11 @@ export class AuthService {
     }
 
     eliminarDataJWT() {
-        this.almacenamiento.removeItem(this.usuarioActualKey);
+        localStorage.removeItem(this.usuarioActualKey);
     }
 
     guardarDataJWT(dataJWT: string) {
-        this.almacenamiento.setItem(this.usuarioActualKey, dataJWT);
+        localStorage.setItem(this.usuarioActualKey, dataJWT);
     }
 
     agregarmodalopenclass():void{
@@ -119,9 +119,9 @@ export class AuthService {
     }
 
     getObjetoJWT(): ObjetoJWT {
-      let dataJWT: string = this.almacenamiento.getItem(this.usuarioActualKey);
+      let dataJWT: string = localStorage.getItem(this.usuarioActualKey);
       if (dataJWT) {
-        let objJWT: ObjetoJWT = JSON.parse(this.almacenamiento.getItem(this.usuarioActualKey));
+        let objJWT: ObjetoJWT = JSON.parse(localStorage.getItem(this.usuarioActualKey));
         return objJWT;
       } else {
         return null;
