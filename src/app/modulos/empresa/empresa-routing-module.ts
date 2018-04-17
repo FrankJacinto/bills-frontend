@@ -2,6 +2,7 @@ import { EmpresaComponenteComponent } from './empresa-componente/empresa-compone
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UsuariosComponent } from '../../componentescomunes/usuarios/usuarios.component';
 
 const empresaRoutes: Routes =[
   {
@@ -9,6 +10,7 @@ const empresaRoutes: Routes =[
     component: EmpresaComponenteComponent,
     children: [
         {path: 'configuracion', component: ConfiguracionComponent},
+        {path: 'usuarios', component: UsuariosComponent},
         {path: '', redirectTo: 'configuracion', pathMatch: 'full'},
         {path: '**', component: ConfiguracionComponent}
     ]

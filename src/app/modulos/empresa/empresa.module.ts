@@ -4,15 +4,19 @@ import { FormsModule } from '@angular/forms';
 import {EmpresaRoutingModule} from './empresa-routing-module'
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
 import { EmpresaComponenteComponent } from './empresa-componente/empresa-componente.component';
+import {UsuariosComponent} from '../../componentescomunes/usuarios/usuarios.component';
+
 
 @NgModule({
   imports: [
     CommonModule,
-    EmpresaRoutingModule
+    EmpresaRoutingModule,
   ],
   declarations: [
     ConfiguracionComponent,
-    EmpresaComponenteComponent
+    EmpresaComponenteComponent,
+    UsuariosComponent
+    
   ]
 })
 export class EmpresaModule { }
