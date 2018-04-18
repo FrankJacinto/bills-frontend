@@ -9,6 +9,9 @@ import { AdminComponenteComponent } from './admin-componente/admin-componente.co
     CommonModule,
     AdminRoutingModule
   ],
-  declarations: [PerfilComponent, AdminComponenteComponent]
+  declarations: [
+    PerfilComponent,
+    AdminComponenteComponent
+  ]
 })
 export class AdminModule { }

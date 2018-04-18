@@ -8,10 +8,10 @@ import { WelcomeComponenteComponent } from './welcome-componente/welcome-compone
   imports: [
     CommonModule,
     WelcomeRoutingModule
-
   ],
-  declarations: [BienvenidoComponent, WelcomeComponenteComponent
-  
+  declarations: [
+    BienvenidoComponent,
+    WelcomeComponenteComponent
   ]
 })
 export class WelcomeModule { }

@@ -2,20 +2,17 @@ import { EmpresaComponenteComponent } from './empresa-componente/empresa-compone
 import { ConfiguracionComponent } from './configuracion/configuracion.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { UsuariosComponent } from '../../componentescomunes/usuarios/usuarios.component';
 
-const empresaRoutes: Routes = <Routes>[
+const empresaRoutes: Routes =[
   {
     path: '',
-    component: ConfiguracionComponent,
+    component: EmpresaComponenteComponent,
     children: [
-      {
-        path: '',
-        children: [
-          {path: 'configuracion', component: ConfiguracionComponent},
-          {path: '', redirectTo: 'configuracion', pathMatch: 'full'},
-          {path: '**', component: ConfiguracionComponent}
-        ]
-      }
+        {path: 'configuracion', component: ConfiguracionComponent},
+        {path: 'usuarios', component: UsuariosComponent},
+        {path: '', redirectTo: 'configuracion', pathMatch: 'full'},
+        {path: '**', component: ConfiguracionComponent}
     ]
   }
 ];

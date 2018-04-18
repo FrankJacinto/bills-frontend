@@ -4,19 +4,14 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-const adminRoutes: Routes = <Routes>[
+const adminRoutes: Routes = [
   {
     path: '',
-    component: PerfilComponent,
+    component: AdminComponenteComponent,
     children: [
-      {
-        path: '',
-        children: [
-          {path: 'perfil', component: PerfilComponent},
-          {path: '', redirectTo: 'perfil', pathMatch: 'full'},
-          {path: '**', component: PerfilComponent}
-        ]
-      }
+      {path: 'perfil', component: PerfilComponent},
+      {path: '', redirectTo: 'perfil', pathMatch: 'full'},
+      {path: '**', component: PerfilComponent}
     ]
   }
 ];
