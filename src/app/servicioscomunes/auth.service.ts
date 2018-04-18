@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { ApiRequestService } from './api-request.service';
 import { LS } from '../constantes/app-constants';
 import 'rxjs/add/operator/toPromise';
+import {ToastrService} from 'ngx-toastr';
 
 export interface AuthSolicitudParam {
     username: string;
@@ -29,65 +30,57 @@ export interface AuthRespuesta {
 export class AuthService {
 
     public usuarioActualKey: string = "currentUser";
-    public almacenamiento: Storage = localStorage;
-    public almacenamientoLocal: Storage = localStorage;
-
-    public urlDestino: string = "/menu";
 
     constructor(
         private router: Router,
-        private apiRequest: ApiRequestService
+        private apiRequest: ApiRequestService,
+        private toastr: ToastrService
     ) { }
 
-    ingresar(username: string, password: string): Promise<AuthRespuesta> {
+    ingresar(username: string, password: string):any {
         let bodyData: AuthSolicitudParam = {
             'username': username,
             'password': password,
         };
-        let authRespuesta: AuthRespuesta;
-        return this.apiRequest.post('session', bodyData)
+        this.apiRequest.post('session', bodyData)
             .then(
                 jsonResp => {
-                if (jsonResp !== undefined && jsonResp.item !== null && jsonResp.estadoOperacion === "EXITO") {
-                    authRespuesta = {
-                        "success": true,
-                        "mensaje": jsonResp.operacionMensaje,
-                        "urlDestino": this.urlDestino,
-                        "user": {
-                            "userId": jsonResp.item.usuarioId,
-                            "token": jsonResp.item.token,
-                            "menus": jsonResp.item.menus,
-                            "tipoUsuario": jsonResp.item.tipoUsuario,
-                            "nombrecompleto": jsonResp.item.nombrecompleto
-                        }
+                if (jsonResp && jsonResp.item && jsonResp.estadoOperacion === "EXITO") {
+                    let user = {
+                        "userId": jsonResp.item.usuarioId,
+                        "token": jsonResp.item.token,
+                        "nombrecompleto": jsonResp.item.nombrecompleto
                     };
-                    this.almacenamiento.setItem(this.usuarioActualKey, JSON.stringify(authRespuesta.user));
-                }
-                else {
+                    localStorage.setItem(this.usuarioActualKey, JSON.stringify(user));
+                    this.router.navigate(["empresa"]);
+                } else {
+                    this.toastr.error('Usuario o clave incorrecta', 'Error');
                     this.cerrarSession();
-                    authRespuesta = {
-                        "success": false,
-                        "mensaje": jsonResp.msgDesc,
-                        "urlDestino": "/welcome"
-                    };
                 }
-                return authRespuesta;
             })
             .catch(err => this.handleError(err));
     }
 
-    private handleError(error: any): Promise<any> {
-      return Promise.reject(error.message || error);
+    private handleError(error: any) {
+      switch (error.status) {
+        case 401:
+        case 403:
+          this.toastr.error('Usuario o clave incorrecta', 'Error');
+          break;
+        default:
+          this.toastr.error('Error interno', 'Error');
+          break;
+      }
     }
 
     cerrarSession(): void {
-        this.almacenamiento.clear();
-        this.almacenamientoLocal.clear();
-        this.router.navigate(["login"]);/* ir al backend y caducar token */
+        localStorage.clear();
+        sessionStorage.clear();
+        this.router.navigate(["/welcome"]);/* ir al backend y caducar token */
     }
 
     getUserName():string {
-        let objJWT: ObjetoJWT = JSON.parse(this.almacenamiento.getItem(this.usuarioActualKey));
+        let objJWT: ObjetoJWT = JSON.parse(localStorage.getItem(this.usuarioActualKey));
         if (objJWT !== null){
             return objJWT.userId
         }
@@ -95,7 +88,7 @@ export class AuthService {
     }
 
     getNombrecompleto():string{
-        let objJWT: ObjetoJWT = JSON.parse(this.almacenamiento.getItem(this.usuarioActualKey));
+        let objJWT: ObjetoJWT = JSON.parse(localStorage.getItem(this.usuarioActualKey));
         if (objJWT !== null && objJWT.nombrecompleto && objJWT.nombrecompleto!== " "){
             return objJWT.nombrecompleto
         }else {
@@ -104,7 +97,7 @@ export class AuthService {
     }
 
     getTipoUser():number {
-      let objJWT: ObjetoJWT = JSON.parse(this.almacenamiento.getItem(this.usuarioActualKey));
+      let objJWT: ObjetoJWT = JSON.parse(localStorage.getItem(this.usuarioActualKey));
       if (objJWT !== null){
         return objJWT.tipoUsuario;
       }
@@ -112,11 +105,11 @@ export class AuthService {
     }
 
     eliminarDataJWT() {
-        this.almacenamiento.removeItem(this.usuarioActualKey);
+        localStorage.removeItem(this.usuarioActualKey);
     }
 
     guardarDataJWT(dataJWT: string) {
-        this.almacenamiento.setItem(this.usuarioActualKey, dataJWT);
+        localStorage.setItem(this.usuarioActualKey, dataJWT);
     }
 
     agregarmodalopenclass():void{
@@ -126,9 +119,9 @@ export class AuthService {
     }
 
     getObjetoJWT(): ObjetoJWT {
-      let dataJWT: string = this.almacenamiento.getItem(this.usuarioActualKey);
+      let dataJWT: string = localStorage.getItem(this.usuarioActualKey);
       if (dataJWT) {
-        let objJWT: ObjetoJWT = JSON.parse(this.almacenamiento.getItem(this.usuarioActualKey));
+        let objJWT: ObjetoJWT = JSON.parse(localStorage.getItem(this.usuarioActualKey));
         return objJWT;
       } else {
         return null;
