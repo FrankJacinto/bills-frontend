@@ -4,7 +4,8 @@ import { Observable, Subject } from 'rxjs';
 import { ApiRequestService } from './api-request.service';
 import { LS } from '../constantes/app-constants';
 import 'rxjs/add/operator/toPromise';
-import {ToastrService} from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
+import { Md5 } from 'ts-md5/dist/md5';
 
 export interface AuthSolicitudParam {
     username: string;
@@ -40,7 +41,7 @@ export class AuthService {
     ingresar(username: string, password: string):any {
         let bodyData: AuthSolicitudParam = {
             'username': username,
-            'password': password,
+            'password': "" + Md5.hashStr(password),
         };
         this.apiRequest.post('session', bodyData)
             .then(
