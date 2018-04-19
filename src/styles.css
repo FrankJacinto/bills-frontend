@@ -5,3 +5,12 @@
 .cursor-pointer {
   cursor: pointer;
 }
+.carousel-indicators{
+  bottom: -50px;
+}
+.carousel-control-prev-icon{
+  margin-left: -135px;
+}
+.carousel-control-next-icon{
+  margin-left: 135px;
+}

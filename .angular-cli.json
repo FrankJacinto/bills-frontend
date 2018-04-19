@@ -20,7 +20,7 @@
       "prefix": "app",
       "styles": [
         "../node_modules/font-awesome/css/font-awesome.css",
-        "tema/vendor/owl.carousel/assets/owl.carousel.min.css",
+        "tema/vendor/owl.carousel/assets/owl.carousel.css",
         "tema/css/style.blue.css",
         "tema/css/admin.min.css",
         "../node_modules/ngx-toastr/toastr.css",
