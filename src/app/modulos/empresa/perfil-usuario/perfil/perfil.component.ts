@@ -38,7 +38,7 @@ export class PerfilComponent implements OnInit {
             data => {
               if(data && data.extraInfo){
                 this.cargando = false;
-                //this.usuario = data.extraInfo;
+                this.usuario = data.extraInfo;
               }
               else{
                 this.toastr.info(data.operacionMensaje,"Informacion");
