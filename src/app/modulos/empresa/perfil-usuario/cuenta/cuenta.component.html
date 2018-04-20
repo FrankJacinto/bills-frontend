@@ -1,0 +1,32 @@
+<div class="card">
+    <div class="card pb-0 mb-0" >
+      <div class="card-header">
+        <h1 align="center">Mi perfil</h1>
+        <p>Añade información personal a tu perfil para que sea compartida</p>
+      </div>
+      <div class="card-body">
+        <div >
+            <label for="nombre">Correo Electronico</label>
+            <input type="email" class="form-control" id="nombre" maxlength="60" [(ngModel)]="usuario.idpersona.correo" placeholder="Ingrese su correo electronico" >
+        </div>
+      </div>
+    </div>
+    <div class="card pt-0 mb-0">
+        <div class="body">
+          <div class="form-group">
+              <label >Contraseña</label>
+              <input type="password" class="form-control" id="con" maxlength="30" placeholder="Escriba su contraseña actual" >
+          </div>
+          <div class="form-group">
+              <input type="password" class="form-control" id="contra" maxlength="30" placeholder="Escriba su contraseña nueva" >
+          </div>
+          <div class="form-group">
+              <input type="password" class="form-control" id="nueva" maxlength="30" placeholder="Escriba su contraseña otra vez" >
+          </div>
+        </div>
+      </div>
+      <div class="card-footer ">
+        <button type="submit " class="btn btn-sm btn-primary "><i class="fa fa-dot-circle-o "></i> Cambiar Contraseña</button>
+      </div>
+        <!--/.row-->
+</div>

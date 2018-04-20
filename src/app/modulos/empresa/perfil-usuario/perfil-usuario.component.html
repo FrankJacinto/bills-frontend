@@ -1,0 +1,50 @@
+  <!-- Breadcrumb-->
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">Home</li>
+    <li class="breadcrumb-item">
+      <a href="#">Admin</a>
+    </li>
+    <li class="breadcrumb-item active">Dashboard</li>
+    <!-- Breadcrumb Menu-->
+    <li class="breadcrumb-menu d-md-down-none">
+      <div class="btn-group" role="group" aria-label="Button group">
+        <a class="btn" href="#">
+          <i class="fa fa-bookmark"></i>
+        </a>
+        <a class="btn" href="./">
+          <i class="fa fa-area-chart"></i>  Dashboard</a>
+        <a class="btn" href="#">
+          <i class="fa fa-cogs"></i>  Settings</a>
+      </div>
+    </li>
+  </ol>
+
+      <div class="card">
+        <div class="card-body">
+            <div class="col-sm-12">
+              <h4 class="card-title mb-0">Mi Perfil</h4>
+              <div class="small text-muted">November 2017</div>
+            </div>
+          <!--/.row-->
+          <div class="row">
+            <div class="col-sm-3 pr-0">
+              <div class="card">
+                <div class="card-header">
+                  <h2>Lista de Opciones</h2>
+                </div>
+                <ul class="listaperfil">
+                  <li class="pointer" routerLink="editperfil">Ver Perfil Público</li>
+                  <li class="pointer" routerLink="foto">Fotografia</li>
+                  <li class="pointer" routerLink="cuenta">Cuenta</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-sm-9 pl-0">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+          <!--/.row-->
+        </div>
+      <!--/.card-->
+    </div>
+
