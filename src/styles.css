@@ -14,3 +14,7 @@
 .carousel-control-next-icon{
   margin-left: 135px;
 }
+.home-carousel h1, .home-carousel h2{
+  margin-top: 15px;
+  margin-bottom: 30px;
+}

@@ -4,6 +4,8 @@ import {LoginComponent} from './../../../componentescomunes/login/login.componen
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
 import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
+import { ScrollToService, ScrollToConfigOptions } from '@nicky-lenaers/ngx-scroll-to';
+
 @Component({
   selector: 'app-welcome-componente',
   templateUrl: './welcome-componente.component.html',
@@ -12,11 +14,12 @@ import {NgbCarouselConfig} from '@ng-bootstrap/ng-bootstrap';
 export class WelcomeComponenteComponent implements OnInit {
   images: Array<string> = new Array(3);
   constructor(
-    public modalService: NgbModal
+    public modalService: NgbModal,
+    private _scrollToService: ScrollToService
   ) {
-    this.images[0] = '../../../../assets/img/template-homepage.png';
-    this.images[1] = '../../../../assets/img/template-mac.png';
-    this.images[2] = '../../../../assets/img/template-easy-customize.png';
+    this.images[0] = '../../../../assets/img/welcome/facturacarrusel2.png';
+    this.images[1] = '../../../../assets/img/welcome/facturacarrusel6.png';
+    this.images[2] = '../../../../assets/img/welcome/facturacarrusel9.png';
   }
 
   ngOnInit() {
@@ -28,6 +31,13 @@ export class WelcomeComponenteComponent implements OnInit {
     modalRef.result.then((result) => {
     }, (reason) => {
     });
+  }
+
+  public triggerScrollTo(destino: string) {
+    const config: ScrollToConfigOptions = {
+      target: destino
+    };
+    this._scrollToService.scrollTo(config);
   }
 
 }

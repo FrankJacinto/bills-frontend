@@ -15,6 +15,8 @@ import {ApiRequestService} from './servicioscomunes/api-request.service';
 import {AuthService} from './servicioscomunes/auth.service';
 import {AuthGuardService} from './servicioscomunes/auth-guard.service';
 import {LoginService} from './componentescomunes/login/login.service';
+// scroll movimiento
+import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import {LoginService} from './componentescomunes/login/login.service';
     ReactiveFormsModule,
     NgbModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    ScrollToModule.forRoot()
   ],
   providers: [
     AppConfig,
