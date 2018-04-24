@@ -2,6 +2,29 @@
 .app-footer {
   padding: 1rem 1rem!important;
 }
+input {
+  height: 25px!important;
+}
+
+.pointer {
+  cursor: pointer;
+
+}
+.pointer:hover{
+  background-color: #00aced;
+}
+
+img{
+  max-width: 112px;
+  height: 112px;
+  vertical-align: middle;
+  border:0;
+}
+
+.textcenter{
+  background: #825f99!important;
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
