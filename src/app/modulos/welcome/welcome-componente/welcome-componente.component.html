@@ -55,19 +55,19 @@
   <!-- Navbar Start-->
   <header class="nav-holder make-sticky">
     <div id="navbar" role="navigation" class="navbar navbar-expand-lg">
-      <div class="container"><a href="index.html" class="navbar-brand home"><img src="assets/img/logotipo.png" alt="Universal logo" class="d-none d-md-inline-block"><img src="assets/img/logo-small.png" alt="Universal logo" class="d-inline-block d-md-none"><span class="sr-only">Universal - go to homepage</span></a>
+      <div class="container"><a href="index.html" class="navbar-brand home" id="comienzo"><img src="assets/img/logotipo.png" alt="Universal logo" class="d-none d-md-inline-block"><img src="assets/img/logo-small.png" alt="Universal logo" class="d-inline-block d-md-none logo"><span class="sr-only">Universal - go to homepage</span></a>
         <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
         <div id="navigation" class="navbar-collapse collapse">
           <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item dropdown"><a href="javascript: void(0)" class="active" data-toggle="dropdown" [routerLinkActive]="['active']">Inicio</a>
+            <li class="nav-item dropdown"><a href="#comienzo" (click)="triggerScrollTo('comienzo')" data-toggle="dropdown" [routerLinkActive]="['active']">Inicio</a>
             </li>
-            <li class="nav-item dropdown"><a href="#nosotros" data-toggle="dropdown">Nosotros</a>
+            <li class="nav-item dropdown"><a href="#nosotros" (click)="triggerScrollTo('nosotros')" data-toggle="dropdown" [routerLinkActive]="['active']">Nosotros</a>
             </li>
             <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle" [routerLinkActive]="['active']">Software <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li class="dropdown-item"><a href="#bills" class="nav-link" [routerLinkActive]="['active']">Bill's</a></li>
-                <li class="dropdown-item"><a href="#servicios" class="nav-link" [routerLinkActive]="['active']">Servicios</a></li>
-                <li class="dropdown-item"><a href="#planes" class="nav-link" [routerLinkActive]="['active']">Planes</a></li>
+                <li class="dropdown-item"><a href="#bills" class="nav-link">Bill's</a></li>
+                <li class="dropdown-item"><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li class="dropdown-item"><a href="#planes" class="nav-link">Planes</a></li>
               </ul>
             </li>
             <li class="nav-item dropdown"><a href="#clientes" data-toggle="dropdown" [routerLinkActive]="['active']">Clientes</a>
@@ -399,58 +399,59 @@
       <p class="text-center"><a href="index2.html" class="btn btn-template-outlined-white btn-lg">See another homepage</a></p>
     </div>
   </section>
-  <section class="bg-white bar">
+  <section class="bg-white bar" id="nosotros">
     <div class="container">
       <div class="heading text-center">
-        <h2>From the blog</h2>
+        <h2>GEEKTIC <span>Soluciones</span></h2>
       </div>
-      <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. <a href="blog.html">Check our blog</a></p>
+      <p class="lead">Somos una empresa de desarrollo de sistemas en la región Piura, utilizando las últimas tecnologías de
+        informática, ofreciendo a las empresas sistemas de mayor calidad y atracción, para su producción y uso. <strong>Página Geektic:</strong> <a href="www.geekticsoluciones.com">www.geekticsoluciones.com</a></p>
       <div class="row">
         <div class="col-lg-3">
           <div class="home-blog-post">
-            <div class="image"><img src="assets/img/portfolio-4.jpg" alt="..." class="img-fluid">
+            <div class="image"><img src="assets/img/welcome/aplicacion-web.png" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
             </div>
             <div class="text">
-              <h4><a href="#">Fashion Now </a></h4>
-              <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-              <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
+              <h4><a href="#">Desarrollo Web</a></h4>
+              <!--<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>-->
+              <p class="intro">Geektic brinda brinda el desarrollo de aplicaciones web acorde a las necesidades y requerimientos de las empresas.</p><!--<a href="#" class="btn btn-template-outlined">Continue Reading</a>-->
             </div>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="home-blog-post">
-            <div class="image"><img src="assets/img/portfolio-3.jpg" alt="..." class="img-fluid">
+            <div class="image"><img src="assets/img/welcome/responsive-design.jpg" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
             </div>
             <div class="text">
-              <h4><a href="#">What to do</a></h4>
-              <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-              <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
+              <h4><a href="#">Web Responsive</a></h4>
+              <!--<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>-->
+              <p class="intro d-flex justify-content-start">Se adapta la aparencia de las páginas web al dispositivo que se está utilizando para visitarlas.</p><!--<a href="#" class="btn btn-template-outlined">Continue Reading</a>-->
             </div>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="home-blog-post">
-            <div class="image"><img src="assets/img/portfolio-5.jpg" alt="..." class="img-fluid">
+            <div class="image"><img src="assets/img/welcome/mantenimiento-web.png" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
             </div>
             <div class="text">
-              <h4><a href="#">5 ways to look awesome</a></h4>
-              <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-              <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
+              <h4><a href="#">Mantenimiento</a></h4>
+              <!--<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>-->
+              <p class="intro">El mantenimiento de las aplicaciones web se da acuerdo a las necesidades del cliente si existe algun cambio o actualizaciones del sistema.</p><!--<a href="#" class="btn btn-template-outlined">Continue Reading</a>-->
             </div>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="home-blog-post">
-            <div class="image"><img src="assets/img/portfolio-6.jpg" alt="..." class="img-fluid">
+            <div class="image"><img src="assets/img/welcome/comunicacion2.jpg" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
             </div>
             <div class="text">
-              <h4><a href="#">Fashion Now </a></h4>
-              <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-              <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
+              <h4><a href="#">Consultas </a></h4>
+              <!--<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>-->
+              <p class="intro">El cliente cualquier consulta o sugerencia del sistema siempre se estará en constante comunicación, con el fin de establecer un mejor servicio con nuestros clientes.</p><!--<a href="#" class="btn btn-template-outlined">Continue Reading</a>-->
             </div>
           </div>
         </div>
