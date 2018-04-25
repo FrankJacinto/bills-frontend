@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { ApiRequestService } from './api-request.service';
@@ -31,6 +31,7 @@ export interface AuthRespuesta {
 export class AuthService {
 
     public usuarioActualKey: string = "currentUser";
+    private isLogged$ = new Subject<boolean>();
 
     constructor(
         private router: Router,
@@ -38,7 +39,7 @@ export class AuthService {
         private toastr: ToastrService
     ) { }
 
-    ingresar(username: string, password: string):any {
+    ingresar(username: string, password: string) {
         let bodyData: AuthSolicitudParam = {
             'username': username,
             'password': "" + Md5.hashStr(password),
@@ -54,13 +55,23 @@ export class AuthService {
                     };
                     localStorage.setItem(this.usuarioActualKey, JSON.stringify(user));
                     this.router.navigate(["empresa"]);
+                    //window.location.href = '/index.html';
+                    this.isLogged$.next(true);
                 } else {
                     this.toastr.error('Usuario o clave incorrecta', 'Error');
                     this.cerrarSession();
+                    this.isLogged$.next(false);
                 }
             })
-            .catch(err => this.handleError(err));
+            .catch(err => {
+                this.isLogged$.next(false);
+                this.handleError(err);
+            });
     }
+
+    getIsLogged$(): Observable<boolean> {
+        return this.isLogged$.asObservable();
+      }
 
     private handleError(error: any) {
       switch (error.status) {
