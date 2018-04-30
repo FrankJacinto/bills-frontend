@@ -1,4 +1,5 @@
-<div class="card">
+<div class="card" >
+ <form #usuario="ngForm" (ngSubmit)="actualizarclave()">
     <div class="card pb-0 mb-0" >
       <div class="card-header">
         <h1 align="center">Mi perfil</h1>
@@ -7,7 +8,7 @@
       <div class="card-body">
         <div >
             <label for="nombre">Correo Electronico</label>
-            <input type="email" class="form-control" id="nombre" maxlength="60" [(ngModel)]="usuario.idpersona.correo" placeholder="Ingrese su correo electronico" >
+            <input type="email" class="form-control" id="nombre" maxlength="60"  placeholder="Ingrese su correo electronico" >
         </div>
       </div>
     </div>
@@ -15,18 +16,19 @@
         <div class="body">
           <div class="form-group">
               <label >Contraseña</label>
-              <input type="password" class="form-control" id="con" maxlength="30" placeholder="Escriba su contraseña actual" >
+              <input type="password" class="form-control" [required]="isAntiguaPasswordValido" class="form-control form-control-lg" name="antiguaPassword" [(ngModel)]="password.antiguaPassword" maxlength="30" (keyup)="verificarPassword()">
           </div>
           <div class="form-group">
-              <input type="password" class="form-control" id="contra" maxlength="30" placeholder="Escriba su contraseña nueva" >
+              <input type="password" class="form-control" [required]="isAntiguaPasswordValido"  name="nuevaPassword" [(ngModel)]="password.nuevaPassword" maxlength="30" (keyup)="verificarPassword()" placeholder="Escriba su contraseña nueva" >
           </div>
           <div class="form-group">
-              <input type="password" class="form-control" id="nueva" maxlength="30" placeholder="Escriba su contraseña otra vez" >
+              <input type="password" class="form-control" [required]="isAntiguaPasswordValido" [ngClass]="{'is-invalid': !isNuevaPasswordValido && isAntiguaPasswordValido}" name="confirmarNuevaPassword" [(ngModel)]="password.confirmarNuevaPassword" (keyup)="verificarPassword()" maxlength="30" placeholder="Confirme su contraseña">
           </div>
         </div>
       </div>
       <div class="card-footer ">
-        <button type="submit " class="btn btn-sm btn-primary "><i class="fa fa-dot-circle-o "></i> Cambiar Contraseña</button>
+        <button type="submit " class="btn btn-sm btn-primary" [disabled]="!usuario.form.valid"><i class="fa fa-dot-circle-o "></i> Cambiar Contraseña</button>
       </div>
+    </form> 
         <!--/.row-->
 </div>

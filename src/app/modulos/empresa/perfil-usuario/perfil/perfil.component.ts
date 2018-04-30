@@ -14,6 +14,7 @@ export class PerfilComponent implements OnInit {
 
   public usuario:Usuario;
   public persona:Persona;
+  public personas:Persona[];
   public cargando:boolean = false;
 
   constructor(
@@ -25,6 +26,8 @@ export class PerfilComponent implements OnInit {
   ) {
     this.usuario=new Usuario();
     this.usuario.idpersona= new Persona();
+    this.persona = new Persona();
+
   }
 
   ngOnInit() {
@@ -39,6 +42,7 @@ export class PerfilComponent implements OnInit {
               if(data && data.extraInfo){
                 this.cargando = false;
                 this.usuario = data.extraInfo;
+                this.persona = this.usuario.idpersona;
               }
               else{
                 this.toastr.info(data.operacionMensaje,"Informacion");
@@ -47,7 +51,27 @@ export class PerfilComponent implements OnInit {
             }
         )
         .catch(err => this.handleError(err));
-  }
+  };
+
+  guardarUsuario(){
+    this.cargando= true;
+    if(this.persona.id){
+      return this.apiRequest.put('persona/actualizar', this.persona)
+          .then(
+              data => {
+                if(data && data.extraInfo){
+                  this.cargando = false;
+                  this.persona = data.extraInfo;
+                  this.persona = new Persona();
+                }else{
+                  this.toastr.info(data.operacionMensaje,"Informacion");
+                  this.cargando = false;
+                }
+              }
+          )
+          .catch(err => this.handleError(err));
+    }
+  };
 
   private handleError(error: any): void {
     this.toastr.error("Error Interno", 'Error');
