@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, Subject } from 'rxjs';
 import { ApiRequestService } from './api-request.service';
 import { LS } from '../constantes/app-constants';
 import 'rxjs/add/operator/toPromise';
-import {ToastrService} from 'ngx-toastr';
+import { ToastrService } from 'ngx-toastr';
+import { Md5 } from 'ts-md5/dist/md5';
 
 export interface AuthSolicitudParam {
     username: string;
@@ -30,6 +31,7 @@ export interface AuthRespuesta {
 export class AuthService {
 
     public usuarioActualKey: string = "currentUser";
+    private isLogged$ = new Subject<boolean>();
 
     constructor(
         private router: Router,
@@ -37,10 +39,10 @@ export class AuthService {
         private toastr: ToastrService
     ) { }
 
-    ingresar(username: string, password: string):any {
+    ingresar(username: string, password: string) {
         let bodyData: AuthSolicitudParam = {
             'username': username,
-            'password': password,
+            'password': "" + Md5.hashStr(password),
         };
         this.apiRequest.post('session', bodyData)
             .then(
@@ -53,13 +55,23 @@ export class AuthService {
                     };
                     localStorage.setItem(this.usuarioActualKey, JSON.stringify(user));
                     this.router.navigate(["empresa"]);
+                    //window.location.href = '/index.html';
+                    this.isLogged$.next(true);
                 } else {
                     this.toastr.error('Usuario o clave incorrecta', 'Error');
                     this.cerrarSession();
+                    this.isLogged$.next(false);
                 }
             })
-            .catch(err => this.handleError(err));
+            .catch(err => {
+                this.isLogged$.next(false);
+                this.handleError(err);
+            });
     }
+
+    getIsLogged$(): Observable<boolean> {
+        return this.isLogged$.asObservable();
+      }
 
     private handleError(error: any) {
       switch (error.status) {

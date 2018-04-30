@@ -22,7 +22,6 @@ import {LoginService} from './componentescomunes/login/login.service';
   declarations: [
     AppComponent,
     LoginComponent,
-
   ],
   entryComponents: [
     LoginComponent
