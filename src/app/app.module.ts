@@ -9,7 +9,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import {AppConfig} from './servicioscomunes/app-config';
 import {ApiRequestService} from './servicioscomunes/api-request.service';
 import {AuthService} from './servicioscomunes/auth.service';
