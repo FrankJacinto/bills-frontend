@@ -19,7 +19,8 @@ import {LoginService} from './componentescomunes/login/login.service';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    
   ],
   entryComponents: [
     LoginComponent
