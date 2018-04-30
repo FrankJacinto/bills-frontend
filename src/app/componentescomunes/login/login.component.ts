@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {LoginService} from './login.service';
-import {AuthService} from './../../servicioscomunes/auth.service';
+import { LoginService } from './login.service';
+import { AuthService } from './../../servicioscomunes/auth.service';
+import { Observable } from 'rxjs/Observable';
+import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,23 +12,27 @@ import {AuthService} from './../../servicioscomunes/auth.service';
 })
 export class LoginComponent implements OnInit {
 
-  cargando:boolean=false;
+  cargando: boolean = false;
   user: any = {};
-  ruc:string;
-  empresaIsTrue:boolean=false;
+  ruc: string;
+  empresaIsTrue: boolean = false;
+  isLogged: boolean;
+  isLogged$: Observable<boolean>;
 
   constructor(
+    private router: Router,
     public loginService: LoginService,
-    private authService: AuthService
+    private authService: AuthService,
+    public activeModal: NgbActiveModal
   ) { }
 
   ngOnInit() {
     localStorage.clear();
   }
 
-  consultarEmpresa(){
+  consultarEmpresa() {
     this.cargando = true;
-    this.loginService.validarEmpresa("empresa/validar/",this.ruc);
+    this.loginService.validarEmpresa("empresa/validar/", this.ruc);
     this.cargando = false;
   }
 
@@ -35,10 +42,17 @@ export class LoginComponent implements OnInit {
 
   ingresar() {
     this.cargando = true;
-    this.authService.ingresar(this.user.username, this.user.password)
-      .then( rpta => {
-        this.cargando = false;
-      });
+    this.authService.ingresar(this.user.username, this.user.password);
+    this.authService.getIsLogged$().subscribe(respuesta => {
+      this.isLogged = respuesta;
+      this.cargando = false;
+      if (this.isLogged) {
+        this.activeModal.dismiss();
+        this.router.navigate(["empresa"]).then(()=>{
+          location.reload();
+        });
+      }
+    });
   }
 
   /*
