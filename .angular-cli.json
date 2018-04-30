@@ -23,6 +23,7 @@
         "tema/vendor/owl.carousel/assets/owl.carousel.min.css",
         "tema/css/style.blue.css",
         "tema/css/admin.min.css",
+        "tema/css/steps.css",
         "../node_modules/ngx-toastr/toastr.css",
         "styles.css"
       ],
@@ -34,7 +35,9 @@
         "tema/js/perfect-scrollbar.min.js",
         "tema/js/coreui.min.js",
         "tema/vendor/owl.carousel/owl.carousel.min.js",
-        "tema/js/front.js"
+        "tema/js/front.js",
+        "tema/js/steps.js"
+
       ],
       "environmentSource": "environments/environment.ts",
       "environments": {

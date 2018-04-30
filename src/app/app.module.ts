@@ -9,6 +9,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StepsModule } from 'primeng/steps';
+import { MenuItem } from 'primeng/api';
 
 import {AppConfig} from './servicioscomunes/app-config';
 import {ApiRequestService} from './servicioscomunes/api-request.service';
@@ -19,7 +21,8 @@ import {LoginService} from './componentescomunes/login/login.service';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+
   ],
   entryComponents: [
     LoginComponent
@@ -32,7 +35,9 @@ import {LoginService} from './componentescomunes/login/login.service';
     ReactiveFormsModule,
     NgbModule.forRoot(),
     BrowserAnimationsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    StepsModule,
+    MenuItem
   ],
   providers: [
     AppConfig,

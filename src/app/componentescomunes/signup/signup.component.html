@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="stepwizard">
+    <div class="stepwizard-row setup-panel">
+      <div class="stepwizard-step col-xs-3">
+        <a href="#step-1" type="button" class="btn btn-success btn-circle">1</a>
+        <p>
+          <small>Paso 1</small>
+        </p>
+      </div>
+      <div class="stepwizard-step col-xs-3">
+        <a href="#step-2" type="button" class="btn btn-default btn-circle" disabled="disabled">2</a>
+        <p>
+          <small>Paso 1</small>
+        </p>
+      </div>
+      <div class="stepwizard-step col-xs-3">
+        <a href="#step-3" type="button" class="btn btn-default btn-circle" disabled="disabled">3</a>
+        <p>
+          <small>Paso 3</small>
+        </p>
+      </div>
+      <div class="stepwizard-step col-xs-3">
+        <a href="#step-4" type="button" class="btn btn-default btn-circle" disabled="disabled">4</a>
+        <p>
+          <small>Paso 4</small>
+        </p>
+      </div>
+    </div>
+  </div>
+<hr>
+  <p-growl [value]="msgs"></p-growl>
+  <h3 class="first">Basic</h3>
+  <p-steps [model]="items"></p-steps>
+  
+  <h3>Clickable</h3>
+  <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false"></p-steps>
+  
+  <h3>Custom Style</h3>
+  <p-steps [model]="items" styleClass="steps-custom"></p-steps>

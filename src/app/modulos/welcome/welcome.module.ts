@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { BienvenidoComponent } from './bienvenido/bienvenido.component';
 import {WelcomeRoutingModule} from './welcome-routing-module';
 import { WelcomeComponenteComponent } from './welcome-componente/welcome-componente.component'
+import { SignupComponent } from '../../componentescomunes/signup/signup.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -11,6 +12,7 @@ import { WelcomeComponenteComponent } from './welcome-componente/welcome-compone
   ],
   declarations: [
     BienvenidoComponent,
+    SignupComponent,
     WelcomeComponenteComponent
   ]
 })
