@@ -24,6 +24,8 @@
         "tema/css/style.blue.css",
         "tema/css/admin.min.css",
         "tema/css/steps.css",
+        "../node_modules/primeng/resources/themes/omega/theme.css",
+        "../node_modules/primeng/resources/primeng.min.css",
         "../node_modules/ngx-toastr/toastr.css",
         "styles.css"
       ],

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { StepsModule } from ''
 import { MenuItem } from 'primeng/api';
 
 @Component({
