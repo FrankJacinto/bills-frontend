@@ -23,6 +23,8 @@
         "tema/vendor/owl.carousel/assets/owl.carousel.css",
         "tema/css/style.blue.css",
         "tema/css/admin.min.css",
+        "../node_modules/primeng/resources/themes/omega/theme.css",
+        "../node_modules/primeng/resources/primeng.min.css",
         "../node_modules/ngx-toastr/toastr.css",
         "tema/css/parallax.css",
         "styles.css"
