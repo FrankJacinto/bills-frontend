@@ -6,6 +6,7 @@ import {PerfilUsuarioComponent} from "./perfil-usuario/perfil-usuario.component"
 import {CuentaComponent} from "./perfil-usuario/cuenta/cuenta.component";
 import {PerfilComponent} from "./perfil-usuario/perfil/perfil.component";
 import {FotoComponent} from "./perfil-usuario/foto/foto.component";
+import { UsuariosComponent } from '../../componentescomunes/usuarios/usuarios.component';
 
 const empresaRoutes: Routes =[
   {
@@ -20,6 +21,7 @@ const empresaRoutes: Routes =[
              {path: 'foto', component: FotoComponent},
          ]
         },
+        {path: 'usuarios', component: UsuariosComponent},
         {path: '', redirectTo: 'configuracion', pathMatch: 'full'},
         {path: '**', component: ConfiguracionComponent}
     ]

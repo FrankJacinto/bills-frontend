@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 .app-footer {
   padding: 1rem 1rem!important;
+  position: absolute;
+  bottom: 0;
+  width: calc(100% - 200px);
 }
 input {
   height: 25px!important;
@@ -14,13 +17,6 @@ input {
   background-color: #00aced;
 }
 
-img{
-  max-width: 112px;
-  height: 112px;
-  vertical-align: middle;
-  border:0;
-}
-
 .textcenter{
   background: #825f99!important;
 }
@@ -28,4 +24,16 @@ img{
 .cursor-pointer {
   cursor: pointer;
 }
-
+.carousel-indicators{
+  bottom: -50px;
+}
+.carousel-control-prev-icon{
+  margin-left: -135px;
+}
+.carousel-control-next-icon{
+  margin-left: 135px;
+}
+.home-carousel h1, .home-carousel h2{
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
