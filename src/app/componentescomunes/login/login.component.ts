@@ -55,6 +55,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
+  cerrarModal(){
+    this.activeModal.dismiss();
+  }
+
   /*
   armarMenu(){
     this.apiService.get("menu/traer/"+this.authService.getUserName())
