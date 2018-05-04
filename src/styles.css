@@ -9,14 +9,22 @@ input {
   height: 25px!important;
 }
 
-.pointer {
+.list-group-item {
   cursor: pointer;
 
 }
-.pointer:hover{
-  background-color: #00aced;
+.list-group-item:hover{
+  background-color: #20a8d8;
 }
 
+.a-perfil{
+  text-decoration: none;
+  color:black;
+}
+.a-perfil:hover{
+  color: white;
+  text-decoration: none;
+}
 img{
   max-width: 112px;
   height: 112px;

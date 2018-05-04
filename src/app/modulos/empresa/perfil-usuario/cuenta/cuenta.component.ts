@@ -72,7 +72,7 @@ export class CuentaComponent implements OnInit {
         .then(respuesta => {
           if(respuesta && respuesta.extraInfo){
             this.usuario.password = ""+nuevaPassword;
-            this.api.get("persona/actualizarclave/"+this.authService.getUserName()+"/"+nuevaPassword)
+            this.api.get("usuario/actualizarclave/"+this.authService.getUserName()+"/"+nuevaPassword)
                 .then(respuesta => {
                   if (respuesta) {
                     this.toastr.success(respuesta.operacionMensaje, 'Éxito');
