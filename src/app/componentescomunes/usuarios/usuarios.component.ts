@@ -10,6 +10,7 @@ export class UsuariosComponent implements OnInit {
   cars1: any = [];
   cols: any = [];   
   data: any = [];
+ 
   constructor() { }
 
   ngOnInit() {
@@ -48,7 +49,5 @@ export class UsuariosComponent implements OnInit {
     { field: 'brand', header: 'Brand' },
     { field: 'color', header: 'Color' }
   ];
-
-    
 }
 }

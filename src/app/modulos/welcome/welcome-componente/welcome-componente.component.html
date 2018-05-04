@@ -13,18 +13,14 @@
               <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
             </ul>
             <div class="login cursor-pointer">
-              <a (click)="abrirLogin()" class="login-btn"><i class="fa fa-sign-in"></i>
-                <span class="d-none d-md-inline-block">Sign In</span></a>
-              <a class="signup-btn" href="/welcome/register" target="_blanck">
-                <i class="fa fa-user"></i>
-                <span class="d-none d-md-inline-block">Sign Up</span>
-              </a>
-              <ul class="social-custom list-inline">
-                <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
-                <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
-              </ul>
+            <div class="login cursor-pointer"><a (click)="abrirLogin()" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Registrarse</span></a><a href="customer-register.html" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Iniciar Sesion</span></a></div>
+            <ul class="social-custom list-inline">
+              <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fa fa-twitter"></i></a></li>
+              <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
+            </ul>
+
           </div>
           
         </div>
@@ -35,184 +31,33 @@
   <!-- Navbar Start-->
   <header class="nav-holder make-sticky">
     <div id="navbar" role="navigation" class="navbar navbar-expand-lg">
-      <div class="container"><a href="index.html" class="navbar-brand home"><img src="assets/img/logo.png" alt="Universal logo" class="d-none d-md-inline-block"><img src="assets/img/logo-small.png" alt="Universal logo" class="d-inline-block d-md-none"><span class="sr-only">Universal - go to homepage</span></a>
+      <div class="container"><a href="index.html" class="navbar-brand home" id="comienzo"><img src="assets/img/logotipo.png" alt="Universal logo" class="d-none d-md-inline-block"><img src="assets/img/logo-small.png" alt="Universal logo" class="d-inline-block d-md-none logo"><span class="sr-only">Universal - go to homepage</span></a>
         <button type="button" data-toggle="collapse" data-target="#navigation" class="navbar-toggler btn-template-outlined"><span class="sr-only">Toggle navigation</span><i class="fa fa-align-justify"></i></button>
         <div id="navigation" class="navbar-collapse collapse">
           <ul class="nav navbar-nav ml-auto">
-            <li class="nav-item dropdown active"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Home <b class="caret"></b></a>
+            <li class="nav-item dropdown"><a href="#comienzo" (click)="triggerScrollTo('comienzo')" data-toggle="dropdown" [routerLinkActive]="['active']">Inicio</a>
+            </li>
+            <li class="nav-item dropdown"><a href="#nosotros" (click)="triggerScrollTo('nosotros')" data-toggle="dropdown" [routerLinkActive]="['active']">Nosotros</a>
+            </li>
+            <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle" [routerLinkActive]="['active']">Software <b class="caret"></b></a>
               <ul class="dropdown-menu">
-                <li class="dropdown-item"><a href="index.html" class="nav-link">Option 1: Default Page</a></li>
-                <li class="dropdown-item"><a href="index2.html" class="nav-link">Option 2: Application</a></li>
-                <li class="dropdown-item"><a href="index3.html" class="nav-link">Option 3: Startup</a></li>
-                <li class="dropdown-item"><a href="index4.html" class="nav-link">Option 4: Agency</a></li>
-                <li class="dropdown-item"><a href="index5.html" class="nav-link">Option 5: Portfolio</a></li>
+                <li class="dropdown-item"><a href="#bills" class="nav-link">Bill's</a></li>
+                <li class="dropdown-item"><a href="#servicios" class="nav-link">Servicios</a></li>
+                <li class="dropdown-item"><a href="#planes" class="nav-link">Planes</a></li>
               </ul>
             </li>
-            <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Features<b class="caret"></b></a>
-              <ul class="dropdown-menu megamenu">
-                <li>
-                  <div class="row">
-                    <div class="col-lg-6"><img src="assets/img/template-easy-customize.png" alt="" class="img-fluid d-none d-lg-block"></div>
-                    <div class="col-lg-3 col-md-6">
-                      <h5>Shortcodes</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="template-accordions.html" class="nav-link">Accordions</a></li>
-                        <li class="nav-item"><a href="template-alerts.html" class="nav-link">Alerts</a></li>
-                        <li class="nav-item"><a href="template-buttons.html" class="nav-link">Buttons</a></li>
-                        <li class="nav-item"><a href="template-content-boxes.html" class="nav-link">Content boxes</a></li>
-                        <li class="nav-item"><a href="template-blocks.html" class="nav-link">Horizontal blocks</a></li>
-                        <li class="nav-item"><a href="template-pagination.html" class="nav-link">Pagination</a></li>
-                        <li class="nav-item"><a href="template-tabs.html" class="nav-link">Tabs</a></li>
-                        <li class="nav-item"><a href="template-typography.html" class="nav-link">Typography</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                      <h5>Header variations</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="template-header-default.html" class="nav-link">Default sticky header</a></li>
-                        <li class="nav-item"><a href="template-header-nosticky.html" class="nav-link">No sticky header</a></li>
-                        <li class="nav-item"><a href="template-header-light.html" class="nav-link">Light header</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+            <li class="nav-item dropdown"><a href="#clientes" data-toggle="dropdown" [routerLinkActive]="['active']">Clientes</a>
             </li>
-            <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" class="dropdown-toggle">Portfolio <b class="caret"></b></a>
-              <ul class="dropdown-menu megamenu">
-                <li>
-                  <div class="row">
-                    <div class="col-lg-6"><img src="assets/img/template-homepage.png" alt="" class="img-fluid d-none d-lg-block"></div>
-                    <div class="col-lg-3 col-md-6">
-                      <h5>Portfolio</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="portfolio-2.html" class="nav-link">2 columns</a></li>
-                        <li class="nav-item"><a href="portfolio-no-space-2.html" class="nav-link">2 columns with negative space</a></li>
-                        <li class="nav-item"><a href="portfolio-3.html" class="nav-link">3 columns</a></li>
-                        <li class="nav-item"><a href="portfolio-no-space-3.html" class="nav-link">3 columns with negative space</a></li>
-                        <li class="nav-item"><a href="portfolio-4.html" class="nav-link">4 columns</a></li>
-                        <li class="nav-item"><a href="portfolio-no-space-4.html" class="nav-link">4 columns with negative space</a></li>
-                        <li class="nav-item"><a href="portfolio-detail.html" class="nav-link">Portfolio - detail</a></li>
-                        <li class="nav-item"><a href="portfolio-detail-2.html" class="nav-link">Portfolio - detail 2</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                      <h5>About</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="about.html" class="nav-link">About us</a></li>
-                        <li class="nav-item"><a href="team.html" class="nav-link">Our team</a></li>
-                        <li class="nav-item"><a href="team-member.html" class="nav-link">Team member</a></li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-                      </ul>
-                      <h5>Marketing</h5>
-                      <ul class="list-unstyled">
-                        <li class="nav-item"><a href="packages.html" class="nav-link">Packages</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-              </ul>
+            <li class="nav-item dropdown"><a href="javascript(0)" (click)="triggerScrollTo('contacto')" data-toggle="dropdown" [routerLinkActive]="['active']">Contacto</a>
             </li>
-            <!-- ========== FULL WIDTH MEGAMENU ==================-->
-            <li class="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown" data-hover="dropdown" data-delay="200" class="dropdown-toggle">All Pages <b class="caret"></b></a>
-              <ul class="dropdown-menu megamenu">
-                <li>
-                  <div class="row">
-                    <div class="col-md-6 col-lg-3">
-                      <h5>Home</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="index.html" class="nav-link">Option 1: Default Page</a></li>
-                        <li class="nav-item"><a href="index2.html" class="nav-link">Option 2: Application</a></li>
-                        <li class="nav-item"><a href="index3.html" class="nav-link">Option 3: Startup</a></li>
-                        <li class="nav-item"><a href="index4.html" class="nav-link">Option 4: Agency</a></li>
-                        <li class="nav-item"><a href="index5.html" class="nav-link">Option 5: Portfolio</a></li>
-                      </ul>
-                      <h5>About</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="about.html" class="nav-link">About us</a></li>
-                        <li class="nav-item"><a href="team.html" class="nav-link">Our team</a></li>
-                        <li class="nav-item"><a href="team-member.html" class="nav-link">Team member</a></li>
-                        <li class="nav-item"><a href="services.html" class="nav-link">Services</a></li>
-                      </ul>
-                      <h5>Marketing</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="packages.html" class="nav-link">Packages</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                      <h5>Portfolio</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="portfolio-2.html" class="nav-link">2 columns</a></li>
-                        <li class="nav-item"><a href="portfolio-no-space-2.html" class="nav-link">2 columns with negative space</a></li>
-                        <li class="nav-item"><a href="portfolio-3.html" class="nav-link">3 columns</a></li>
-                        <li class="nav-item"><a href="portfolio-no-space-3.html" class="nav-link">3 columns with negative space</a></li>
-                        <li class="nav-item"><a href="portfolio-4.html" class="nav-link">4 columns</a></li>
-                        <li class="nav-item"><a href="portfolio-no-space-4.html" class="nav-link">4 columns with negative space</a></li>
-                        <li class="nav-item"><a href="portfolio-detail.html" class="nav-link">Portfolio - detail</a></li>
-                        <li class="nav-item"><a href="portfolio-detail-2.html" class="nav-link">Portfolio - detail 2</a></li>
-                      </ul>
-                      <h5>User pages</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="customer-register.html" class="nav-link">Register / login</a></li>
-                        <li class="nav-item"><a href="customer-orders.html" class="nav-link">Orders history</a></li>
-                        <li class="nav-item"><a href="customer-order.html" class="nav-link">Order history detail</a></li>
-                        <li class="nav-item"><a href="customer-wishlist.html" class="nav-link">Wishlist</a></li>
-                        <li class="nav-item"><a href="customer-account.html" class="nav-link">Customer account / change password</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                      <h5>Shop</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="shop-category.html" class="nav-link">Category - sidebar right</a></li>
-                        <li class="nav-item"><a href="shop-category-left.html" class="nav-link">Category - sidebar left</a></li>
-                        <li class="nav-item"><a href="shop-category-full.html" class="nav-link">Category - full width</a></li>
-                        <li class="nav-item"><a href="shop-detail.html" class="nav-link">Product detail</a></li>
-                      </ul>
-                      <h5>Shop - order process</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="shop-basket.html" class="nav-link">Shopping cart</a></li>
-                        <li class="nav-item"><a href="shop-checkout1.html" class="nav-link">Checkout - step 1</a></li>
-                        <li class="nav-item"><a href="shop-checkout2.html" class="nav-link">Checkout - step 2</a></li>
-                        <li class="nav-item"><a href="shop-checkout3.html" class="nav-link">Checkout - step 3</a></li>
-                        <li class="nav-item"><a href="shop-checkout4.html" class="nav-link">Checkout - step 4</a></li>
-                      </ul>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                      <h5>Contact</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                        <li class="nav-item"><a href="contact2.html" class="nav-link">Contact - version 2</a></li>
-                        <li class="nav-item"><a href="contact3.html" class="nav-link">Contact - version 3</a></li>
-                      </ul>
-                      <h5>Pages</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="text.html" class="nav-link">Text page</a></li>
-                        <li class="nav-item"><a href="text-left.html" class="nav-link">Text page - left sidebar</a></li>
-                        <li class="nav-item"><a href="text-full.html" class="nav-link">Text page - full width</a></li>
-                        <li class="nav-item"><a href="faq.html" class="nav-link">FAQ</a></li>
-                        <li class="nav-item"><a href="404.html" class="nav-link">404 page</a></li>
-                      </ul>
-                      <h5>Blog</h5>
-                      <ul class="list-unstyled mb-3">
-                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog listing big</a></li>
-                        <li class="nav-item"><a href="blog-medium.html" class="nav-link">Blog listing medium</a></li>
-                        <li class="nav-item"><a href="blog-small.html" class="nav-link">Blog listing small</a></li>
-                        <li class="nav-item"><a href="blog-post.html" class="nav-link">Blog Post</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                </li>
-              </ul>
-            </li>
-            <!-- ========== FULL WIDTH MEGAMENU END ==================-->
             <!-- ========== Contact dropdown ==================-->
-            <li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Contact <b class="caret"></b></a>
+            <!--<li class="nav-item dropdown"><a href="javascript: void(0)" data-toggle="dropdown" class="dropdown-toggle">Contact <b class="caret"></b></a>
               <ul class="dropdown-menu">
                 <li class="dropdown-item"><a href="contact.html" class="nav-link">Contact option 1</a></li>
                 <li class="dropdown-item"><a href="contact2.html" class="nav-link">Contact option 2</a></li>
                 <li class="dropdown-item"><a href="contact3.html" class="nav-link">Contact option 3</a></li>
               </ul>
-            </li>
+            </li>-->
             <!-- ========== Contact dropdown end ==================-->
           </ul>
         </div>
@@ -225,6 +70,7 @@
           </form>
         </div>
       </div>
+
     </div>
   </header>
   <!-- Navbar End-->
@@ -233,6 +79,76 @@
     <div class="container">
       <!-- Carousel Start-->
       <div class="home-carousel">
+        <div class="dark-mask mask-primary"></div>
+
+        <ngb-carousel *ngIf="images">
+          <ng-template ngbSlide>
+            <div class="item" >
+              <div class="row">
+                <div class="col-md-5 text-right">
+                  <p><img src="../../../../assets/img/logotipo.png" alt="" width="100px"></p>
+                  <h1>Sistema de Facturacion Electronica</h1>
+                  <p>crea personaliza controla y <br>gestiona tus facturas electronicas.</p>
+                </div>
+                <div class="col-md-7"><img [src]="images[0]" alt="Random first slide" class="img-fluid"></div>
+              </div>
+            </div>
+            <!--<div class="carousel-caption">
+              <h3>First slide label</h3>
+              <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            </div>-->
+          </ng-template>
+          <ng-template ngbSlide>
+            <div class="item" >
+              <div class="row">
+                <div class="col-md-7 text-center"><img [src]="images[1]" alt="Random second slide" width="440px"></div>
+                <br/>
+                <div class="col-md-5">
+                  <h1>Factura Electronica</h1>
+                  <ul class="list-unstyled">
+                    <li>Crea y personaliza</li>
+                    <li>El mejor control de facturación online</li>
+                    <li>Iterativo y facil acceso al sistema.</li>
+                    <li>Gestiona desde cualquier dispositivo.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+            <!--<div class="carousel-caption">
+              <h3>Second slide label</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>-->
+          </ng-template>
+          <ng-template ngbSlide>
+              <div class="item">
+                <div class="row">
+                <div class="col-md-5 text-right">
+                  <h1>Beneficios</h1>
+                  <ul class="list-unstyled">
+                    <li>Ahorro de costos</li>
+                    <li>Orden y rapidez</li>
+                    <li>Facilitan la fiscalizacion</li>
+                    <li>Eficiencia</li>
+                  </ul>
+                </div>
+                <div class="col-md-7" class="text-center"><img [src]="images[2]" alt="Random third slide" width="490px"></div>
+              </div>
+            </div>
+
+            <!--<div class="carousel-caption">
+              <h3>Third slide label</h3>
+              <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+            </div>-->
+          </ng-template>
+        </ngb-carousel>
+
+      </div>
+
+
+
+      <!--<div class="home-carousel">
         <div class="dark-mask mask-primary"></div>
         <div class="container">
           <div class="homepage owl-carousel">
@@ -288,7 +204,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div>-->
       <!-- Carousel End-->
     </div>
   </section>
@@ -298,22 +214,28 @@
         <div class="col-lg-4 col-md-6">
           <div class="box-simple">
             <div class="icon-outlined"><i class="fa fa-desktop"></i></div>
-            <h3 class="h4">Webdesign</h3>
-            <p>Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p>
+            <h3 class="h4">Diseño Web</h3>
+            <p>El sistema abarca un buen diseño gráfico web, diseño de interfaz, obteniendo una excelente
+              experiencia al usuario como la navegabilidad, interactividad, usabilidad y arquitectura de la
+              información.
+            </p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="box-simple">
             <div class="icon-outlined"><i class="fa fa-print"></i></div>
-            <h3 class="h4">Print</h3>
-            <p>Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an.</p>
+            <h3 class="h4">Impresión</h3>
+            <p>Los reportes de cada proceso de interacción del sistema de facturación brinda el servicio de descarga
+              e impreción, facilitando al usuario la mejor experiencia.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="box-simple">
             <div class="icon-outlined"><i class="fa fa-globe"></i></div>
-            <h3 class="h4">SEO and SEM</h3>
-            <p>Am terminated it excellence invitation projection as. She graceful shy believed distance use nay. Lively is people so basket ladies window expect.</p>
+            <h3 class="h4">Control</h3>
+            <p>El sistema brinda el mejor control de facturación, personalizando y la gestión desde
+              cualquier dispositivo móvil: celular, tablet y pc.
+            </p>
           </div>
         </div>
       </div>
@@ -321,22 +243,26 @@
         <div class="col-lg-4 col-md-6">
           <div class="box-simple">
             <div class="icon-outlined"><i class="fa fa-lightbulb-o"></i></div>
-            <h3 class="h4">Consulting</h3>
-            <p>Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p>
+            <h3 class="h4">Consultas</h3>
+            <p>El sistema le brinda al usuario las respuestas necesarias de cualquier consulta que propone
+              respecto al sistema de facturación.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="box-simple">
             <div class="icon-outlined"><i class="fa fa-envelope-o"></i></div>
-            <h3 class="h4">Email Marketing</h3>
-            <p>Advantage old had otherwise sincerity dependent additions. It in adapted natural hastily is justice. Six draw you him full not mean evil. Prepare garrets it expense windows shewing do an.</p>
+            <h3 class="h4">Email</h3>
+            <p>La comunicación con el usuario se dará mediante por correo electrónico, brindando una excelente
+              servicio del sistema de facturación con el usuario.</p>
           </div>
         </div>
         <div class="col-lg-4 col-md-6">
           <div class="box-simple">
             <div class="icon-outlined"><i class="fa fa-user"></i></div>
-            <h3 class="h4">UX</h3>
-            <p>Am terminated it excellence invitation projection as. She graceful shy believed distance use nay. Lively is people so basket ladies window expect.</p>
+            <h3 class="h4">Usuarios</h3>
+            <p>El sistema brinda al usuario administrador de la empresa permite manejar y gestionar todos
+              sus propios usuarios, abarcando la asignación de funciones, seguimiento y el control de sus usuarios.
+            </p>
           </div>
         </div>
       </div>
@@ -449,58 +375,59 @@
       <p class="text-center"><a href="index2.html" class="btn btn-template-outlined-white btn-lg">See another homepage</a></p>
     </div>
   </section>
-  <section class="bg-white bar">
+  <section class="bg-white bar" id="nosotros">
     <div class="container">
       <div class="heading text-center">
-        <h2>From the blog</h2>
+        <h2>GEEKTIC <span>Soluciones</span></h2>
       </div>
-      <p class="lead">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. <a href="blog.html">Check our blog</a></p>
+      <p class="lead">Somos una empresa de desarrollo de sistemas en la región Piura, utilizando las últimas tecnologías de
+        informática, ofreciendo a las empresas sistemas de mayor calidad y atracción, para su producción y uso. <strong>Página Geektic:</strong> <a href="www.geekticsoluciones.com">www.geekticsoluciones.com</a></p>
       <div class="row">
         <div class="col-lg-3">
           <div class="home-blog-post">
-            <div class="image"><img src="assets/img/portfolio-4.jpg" alt="..." class="img-fluid">
+            <div class="image"><img src="assets/img/welcome/aplicacion-web.png" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
             </div>
             <div class="text">
-              <h4><a href="#">Fashion Now </a></h4>
-              <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-              <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
+              <h4><a href="#">Desarrollo Web</a></h4>
+              <!--<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>-->
+              <p class="intro">Geektic brinda brinda el desarrollo de aplicaciones web acorde a las necesidades y requerimientos de las empresas.</p><!--<a href="#" class="btn btn-template-outlined">Continue Reading</a>-->
             </div>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="home-blog-post">
-            <div class="image"><img src="assets/img/portfolio-3.jpg" alt="..." class="img-fluid">
+            <div class="image"><img src="assets/img/welcome/responsive-design.jpg" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
             </div>
             <div class="text">
-              <h4><a href="#">What to do</a></h4>
-              <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-              <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
+              <h4><a href="#">Web Responsive</a></h4>
+              <!--<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>-->
+              <p class="intro d-flex justify-content-start">Se adapta la aparencia de las páginas web al dispositivo que se está utilizando para visitarlas.</p><!--<a href="#" class="btn btn-template-outlined">Continue Reading</a>-->
             </div>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="home-blog-post">
-            <div class="image"><img src="assets/img/portfolio-5.jpg" alt="..." class="img-fluid">
+            <div class="image"><img src="assets/img/welcome/mantenimiento-web.png" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
             </div>
             <div class="text">
-              <h4><a href="#">5 ways to look awesome</a></h4>
-              <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-              <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
+              <h4><a href="#">Mantenimiento</a></h4>
+              <!--<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>-->
+              <p class="intro">El mantenimiento de las aplicaciones web se da acuerdo a las necesidades del cliente si existe algun cambio o actualizaciones del sistema.</p><!--<a href="#" class="btn btn-template-outlined">Continue Reading</a>-->
             </div>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="home-blog-post">
-            <div class="image"><img src="assets/img/portfolio-6.jpg" alt="..." class="img-fluid">
+            <div class="image"><img src="assets/img/welcome/comunicacion2.jpg" alt="..." class="img-fluid">
               <div class="overlay d-flex align-items-center justify-content-center"><a href="#" class="btn btn-template-outlined-white"><i class="fa fa-chain"> </i> Read More</a></div>
             </div>
             <div class="text">
-              <h4><a href="#">Fashion Now </a></h4>
-              <p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>
-              <p class="intro">Fifth abundantly made Give sixth hath. Cattle creature i be don't them behold green moved fowl Moved life us beast good yielding. Have bring.</p><a href="#" class="btn btn-template-outlined">Continue Reading</a>
+              <h4><a href="#">Consultas </a></h4>
+              <!--<p class="author-category">By <a href="#">John Snow</a> in <a href="blog.html">Webdesign</a></p>-->
+              <p class="intro">El cliente cualquier consulta o sugerencia del sistema siempre se estará en constante comunicación, con el fin de establecer un mejor servicio con nuestros clientes.</p><!--<a href="#" class="btn btn-template-outlined">Continue Reading</a>-->
             </div>
           </div>
         </div>
@@ -537,7 +464,7 @@
   <!-- registrate -->
     <app-signup></app-signup>
   <!-- FOOTER -->
-  <footer class="main-footer">
+  <footer class="main-footer" id="contacto">
     <div class="container">
       <div class="row">
         <div class="col-lg-3">
@@ -600,7 +527,7 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-4 text-center-md">
-            <p>&copy; 2018. Your company / name goes here</p>
+            <p>&copy; 2018. Empresa / Geektic Soluciones</p>
           </div>
           <div class="col-lg-8 text-right text-center-md">
             <p>Template design by <a href="https://bootstrapious.com/free-templates">Bootstrapious Templates </a></p>

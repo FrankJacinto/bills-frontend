@@ -28,16 +28,16 @@
       <div class="form-group row">
         <label for="ubigeo" class="col-2 col-form-label">ID de Ubigeo</label>
         <div class="col-10">
-          <input class="form-control" type="text" value="" name="ubigeo" id="idubigeo" required>
+          <input class="form-control" type="text" value="" [(ngModel)]="empresas.idubigeo" name="ubigeo" id="idubigeo" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="example-tel-input" class="col-2 col-form-label">Regimen</label>
         <div class="col-10">
-          <input class="form-control" type="text" value="" name="telefono" id="idtelefono"required>
+          <input class="form-control" type="number" value="" min ="0" maxlength="1" [(ngModel)]="empresas.idregimen" name="regimen" id="idregimen"required>
         </div>
       </div>
-      <div class="form-group row row btn pull-right">
+      <div class="form-group btn pull-right">
         <button class="btn btn-success" styleClass="steps-custom">Next</button>
       </div>   
   </form>
