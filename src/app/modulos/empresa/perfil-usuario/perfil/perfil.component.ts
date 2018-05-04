@@ -21,7 +21,6 @@ export class PerfilComponent implements OnInit {
       public toastr: ToastrService,
       public auth: AuthService
 
-
   ) {
     this.usuario=new Usuario();
     this.usuario.idpersona= new Persona();

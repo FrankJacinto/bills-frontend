@@ -11,7 +11,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StepsModule } from 'primeng/steps';
 import { MenuItem } from 'primeng/api';
-
 import {AppConfig} from './servicioscomunes/app-config';
 import {ApiRequestService} from './servicioscomunes/api-request.service';
 import {AuthService} from './servicioscomunes/auth.service';
@@ -35,8 +34,7 @@ import {LoginService} from './componentescomunes/login/login.service';
     NgbModule.forRoot(),
     BrowserAnimationsModule,
     ToastrModule.forRoot(),
-    StepsModule,
-    MenuItem
+ 
   ],
   providers: [
     AppConfig,
