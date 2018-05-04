@@ -8,15 +8,12 @@
 input {
   height: 25px!important;
 }
-
 .list-group-item {
   cursor: pointer;
-
 }
 .list-group-item:hover{
   background-color: #20a8d8;
 }
-
 .a-perfil{
   text-decoration: none;
   color:black;
@@ -31,12 +28,22 @@ img{
   vertical-align: middle;
   border:0;
 }
-
 .textcenter{
   background: #825f99!important;
 }
-
 .cursor-pointer {
   cursor: pointer;
 }
-
+.carousel-indicators{
+  bottom: -50px;
+}
+.carousel-control-prev-icon{
+  margin-left: -135px;
+}
+.carousel-control-next-icon{
+  margin-left: 135px;
+}
+.home-carousel h1, .home-carousel h2{
+  margin-top: 15px;
+  margin-bottom: 30px;
+}

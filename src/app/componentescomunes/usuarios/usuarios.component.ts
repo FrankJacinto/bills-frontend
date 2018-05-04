@@ -47,5 +47,6 @@ export class UsuariosComponent implements OnInit {
     { field: 'brand', header: 'Brand' },
     { field: 'color', header: 'Color' }
   ];
+    
   }
 }
