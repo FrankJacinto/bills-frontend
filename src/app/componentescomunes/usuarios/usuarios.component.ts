@@ -9,6 +9,7 @@ export class UsuariosComponent implements OnInit {
 
   cars1: any = [];
   cols: any = [];
+  
   constructor() { }
 
   ngOnInit() {
@@ -40,14 +41,13 @@ export class UsuariosComponent implements OnInit {
       {"brand": "Fiat", "year": 2013, "color": "Red", "vin": "245t2s"},
       {"brand": "Fiat", "year": 2013, "color": "Red", "vin": "245t2s"},
       {"brand": "Fiat", "year": 2013, "color": "Red", "vin": "245t2s"}
-  ];
-  this.cols = [
-    { field: 'vin', header: 'Vin' },
-    { field: 'year', header: 'Year' },
-    { field: 'brand', header: 'Brand' },
-    { field: 'color', header: 'Color' }
-  ];
-    
+    ];
+    this.cols = [
+      { field: 'vin', header: 'Vin' },
+      { field: 'year', header: 'Year' },
+      { field: 'brand', header: 'Brand' },
+      { field: 'color', header: 'Color' }
+    ];
   }
 
 }
