@@ -47,3 +47,31 @@ input {
   margin-top: 15px;
   margin-bottom: 30px;
 }
+
+/* Estilos login */
+.user-img-login{
+  margin-top:-50px;
+  text-align: center;
+}
+ngb-modal-window.modal.fade.show.d-block>div.modal-dialog.modal-sm>div.modal-content{
+  margin-top: 100px;
+}
+.user-img-login img{
+	height: 100px;
+	width: 100px;
+}
+.user-name-login{
+  margin:10px 0px;
+  text-align: center;
+}
+.user-name-login h2{
+  color:#676363;  
+  font-family: 'Barlow Semi Condensed', sans-serif;
+}
+.user-name-login button{
+	position: absolute;	
+	top:-50px;
+	right:20px;
+	font-size:20px;
+}
+/*Fin estilos login*/
