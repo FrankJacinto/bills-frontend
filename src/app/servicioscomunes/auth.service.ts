@@ -54,8 +54,6 @@ export class AuthService {
                         "nombrecompleto": jsonResp.item.nombrecompleto
                     };
                     localStorage.setItem(this.usuarioActualKey, JSON.stringify(user));
-                    this.router.navigate(["empresa"]);
-                    //window.location.href = '/index.html';
                     this.isLogged$.next(true);
                 } else {
                     this.toastr.error('Usuario o clave incorrecta', 'Error');
