@@ -19,6 +19,7 @@ const empresaRoutes: Routes =[
              {path: 'editperfil', component: PerfilComponent},
              {path: 'cuenta', component: CuentaComponent},
              {path: 'foto', component: FotoComponent},
+             {path: '', redirectTo: 'editperfil', pathMatch: 'full'}
          ]
         },
         {path: 'usuarios', component: UsuariosComponent},
