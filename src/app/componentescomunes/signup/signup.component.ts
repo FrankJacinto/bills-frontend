@@ -7,6 +7,7 @@ import { NgbActiveModal, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ApiRequestService } from '../../servicioscomunes/api-request.service';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../servicioscomunes/auth.service';
+import { Persona } from '../../entidades/entidad.persona';
 
 @Component({
   selector: 'app-signup',
@@ -26,11 +27,14 @@ export class SignupComponent implements OnInit {
   tr: any;
   maxDate: Date;
   value: Date;
-  //variables de registro
+  //variables de registro de empresa
   public cargando: boolean = false;
   public listado: boolean = false;
   public empresa: Empresa;
   public empresaArray: Empresa[];
+  //variabales para guardar datos personales
+  public persona:Persona;
+  public personaArray:Persona[];
 
   constructor(private activeModal: NgbActiveModal,
     private modal: NgbModal,
@@ -39,6 +43,7 @@ export class SignupComponent implements OnInit {
     public toastr: ToastrService,
     public auth: AuthService) {
     this.empresa = new Empresa();
+    this.persona=new Persona();
   }
   ngOnInit() {
 
@@ -122,12 +127,26 @@ export class SignupComponent implements OnInit {
       }
     })
       .catch(err => this.handleError(err));
-
   };
+  //metodo registrar datos persona
+  guardarDatosPersona(){
+    this.cargando=true;
+    this.api.post("persona/guardar", this.persona).then(respuesta => {
+      if (respuesta && respuesta.extraInfo) {
+        this.persona = respuesta.extraInfo;
+        this.toastr.success("Registro guardado exitosamente", 'Exito');
+        this.cargando = false;
+      } else {
+        this.cargando = false;
+        this.toastr.error(respuesta.operacionMensaje, 'Errror');
+      }
+    })
+      .catch(err => this.handleError(err));
+  };
+
   //metoddo private handle error
   private handleError(error: any): void {
     this.toastr.error("Error Interno", 'Error');
     this.cargando = false;
   };
-
 }

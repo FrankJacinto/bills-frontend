@@ -13,9 +13,14 @@
               <li class="list-inline-item"><a href="#"><i class="fa fa-envelope"></i></a></li>
             </ul>
             <div class="login cursor-pointer">
-            <div class="login cursor-pointer"><a (click)="abrirLogin()" class="login-btn"><i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Iniciar sesion</span></a>
-            <a href="/register" class="signup-btn"><i class="fa fa-user"></i><span class="d-none d-md-inline-block">Registrarse</span></a></div>
-            </div>
+            <a (click)="abrirLogin()" class="login-btn">
+              <i class="fa fa-sign-in"></i><span class="d-none d-md-inline-block">Iniciar sesion</span>
+            </a>
+            <a href="#registrarse" class="signup-btn" (click)="triggerScrollTo('resgistrarse')"> 
+              <i class="fa fa-user"></i><span class="d-none d-md-inline-block">Registrarse</span>
+            </a>
+          </div>
+  
             <ul class="social-custom list-inline">
               <li class="list-inline-item"><a href="#"><i class="fa fa-facebook"></i></a></li>
               <li class="list-inline-item"><a href="#"><i class="fa fa-google-plus"></i></a></li>
@@ -464,7 +469,10 @@
     </div>
   </div>
   <!-- registrate -->
+  <div id="registrarse">
     <app-signup></app-signup>
+  </div>
+   
   <!-- FOOTER -->
   <footer class="main-footer" id="contacto">
     <div class="container">

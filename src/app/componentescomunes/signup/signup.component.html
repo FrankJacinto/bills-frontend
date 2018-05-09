@@ -1,125 +1,133 @@
-<div class="container">
-  <h3>Registrar Cliente Empresa</h3>
-  <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false" styleClass="steps-custom"></p-steps>   
-</div>
-<div class="container">
-  <p-steps [model]="items" styleClass="steps-custom"></p-steps>
-</div>
-<div class="row" *ngIf="activeIndex == 0">
-  <div class="container" id="idempresa" id="step-1">
-  <form (ngSubmit)="guardarDatosEmpresa()">
-      <!-- datos empresa -->
-      <h3>Datos Empresa</h3>
-      <div class="form-group row">
-        <label for="ruc" class="col-2 col-form-label">Ruc:</label>
-        <div class="col-10">
-          <input class="form-control" type="text" value="" [(ngModel)]="empresa.ruc" name="nombre" id="idruc" maxlength="11" required>
+<div class="container ">
+  <div class="card">
+    <div class="card-header">
+        <h3>Registrar Cliente Empresa</h3>
+    </div>
+      <div class="card-body">
+        <div class="form-group">
+          <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false" styleClass="steps-custom ui-steps"></p-steps>
+          <!-- <p-steps [model]="items" styleClass="steps-custom"></p-steps> -->
+        </div>
+        <div class="row" *ngIf="activeIndex == 0">
+          <div class="container" id="idempresa" id="step-1">
+            <form (ngSubmit)="guardarDatosEmpresa()" class="responsive">
+              <!-- datos empresa -->
+              <div class="form-group">
+                <h3>
+                  <i class="fa fa-building-o" aria-hidden="true"></i> Datos Empresa
+                </h3>
+              </div>
+              <div class="form-group row">
+                <label for="ruc" class="col-md-2 col-lg-2 col-form-label">Ruc:</label>
+                <div class="col-md-10 col-lg-10">
+                  <input class="form-control" type="text" value="" [(ngModel)]="empresa.ruc" name="nombre" maxlength="11" required placeholder="ruc">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="razon-social" class="col-md-2 col-lg-2 col-form-label" onfocus="entroenfoco(this)" onblur="saliodefoco(this); camposobligatorios(this)">Razon Social</label>
+                <div class="col-md-10 col-lg-10">
+                  <input class="form-control" type="text" value="" [(ngModel)]="empresa.razonsocial" name="razon" required placeholder="razon social">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="razon-social" class="col-md-2 col-lg-2 col-form-label">Fecha de Resgistro</label>
+                <div class="col-md-10 col-lg-10">
+                  <p-calendar [(ngModel)]="minDate" name="calendar" [locale]="es" styleClass="steps-custom ui-steps"></p-calendar>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="ubigeo" class="col-md-2 col-lg-2 col-form-label">ID de Ubigeo</label>
+                <div class="col-md-10 col-lg-10">
+                  <input class="form-control" type="text" min="1" value="" [(ngModel)]="empresa.idubigeo" name="ubigeo" required placeholder="ubigeo">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-tel-input" class="col-md-2 col-lg-2 col-form-label">Regimen</label>
+                <div class="col-md-10 col-lg-10">
+                  <input class="form-control" type="text" value="" min="1" [(ngModel)]="empresa.idregimen" name="regimen" required placeholder="regimen">
+                </div>
+              </div>
+              <div class="form-group row row btn pull-right">
+                <button class="btn btn-success">Next</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        
+      <div class="row" *ngIf="activeIndex == 1">
+        <div class="container" id="idempresa">
+          <form  #formulario="ngForm" (ngSubmit)="guardarDatosPersona()" class="responsive">
+            <div class="form-group">
+              <h3><i class="fa fa-book" aria-hidden="true"></i>Datos Personales</h3>
+            </div>
+              <div class="form-group row">
+                <label for="example-text-input" class="col-2 col-form-label">Nombre:</label>
+                <div class="col-10">
+                  <input class="form-control" type="text" value="" name="nombres" [(ngModel)]="persona.nombre" placeholder="ingrese nombre" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-search-input" class="col-2 col-form-label" >Apellidos</label>
+                <div class="col-10">
+                  <input class="form-control" type="text" value="" name="apellidos" [(ngModel)]="persona.apellido" placeholder="ingrese apellidos" required>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label for="example-tel-input" class="col-2 col-form-label" name="ruc">Ruc Empresa</label>
+                <div class="col-10">
+                  <input class="form-control" type="text" value="" name="text" placeholder="ingrese ruc">
+                </div>
+              </div>
+              <div class="form-group row btn pull-right">
+                <button type="submit" class="btn btn-success" [disabled]="!formulario.form.valid">Next</button>
+              </div>
+            </form>
+           
+          </div>
+        </div>
+        
+        <!-- datos usuario -->
+        <div class="row" *ngIf="activeIndex == 2">
+          <div class="container" id="idusaurio">
+            <div class="form-group">
+              <h3>
+                <i class="fa fa-user" aria-hidden="true"></i>Datos de Usuario</h3>
+            </div>
+            <div class="form-group row">
+              <label for="example-text-input" class="col-2 col-form-label">Nombre:</label>
+              <div class="col-10">
+                <input class="form-control" type="text" value="" name="nombre" placeholder="ingrese nombre de usuario">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-search-input" class="col-2 col-form-label">Usuario</label>
+              <div class="col-10">
+                <input class="form-control" type="text" value="" name="apellidos" placeholder="ingrese usuario">
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="example-password-input" class="col-2 col-form-label">Password</label>
+              <div class="col-10">
+                <input class="form-control" type="password" value="" placeholder="ingrese password">
+              </div>
+            </div>
+            <div class="form-group row row btn pull-right">
+              <button class="btn btn-success">Next</button>
+            </div>
+          </div>
+        </div>
+        <div class="row" *ngIf="activeIndex == 3">
+          <div class="container pull-right" id="idconfirmar">
+            <h3>Comfirmacion</h3>
+            <div class="form-group row row btn pull-right">
+              <button class="btn btn-success">Confirmar</button>
+            </div>
+        
+          </div>
         </div>
       </div>
-      <div class="form-group row">
-        <label for="razon-social" class="col-2 col-form-label">Razon Social</label>
-        <div class="col-10">
-          <input class="form-control" type="text" value="" [(ngModel)]="empresa.razonsocial" name="razon" required>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="razon-social" class="col-2 col-form-label">Fecha de Resgistro</label>
-        <div class="col-10">
-          <p-calendar [(ngModel)]="minDate" name="calendar" [locale]="es"></p-calendar>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="ubigeo" class="col-2 col-form-label">ID de Ubigeo</label>
-        <div class="col-10">
-          <input class="form-control" type="number" min ="1" value="" [(ngModel)]="empresa.idubigeo" name="ubigeo" required>
-        </div>
-      </div>
-      <div class="form-group row">
-        <label for="example-tel-input" class="col-2 col-form-label">Regimen</label>
-        <div class="col-10">
-          <input class="form-control" type="number" value="" min ="1" [(ngModel)]="empresa.idregimen" name="regimen" id="idregimen"required>
-        </div>
-      </div>
-      <div class="form-group btn pull-right">
-        <button class="btn btn-success" styleClass="steps-custom">Next</button>
-      </div>   
-  </form>
+     
+    </div>
+    <script src="codigo.js"></script>
   </div>
-</div>
-
-<div class="row" *ngIf="activeIndex == 1">
-  <div class="container" id="idempresa">
-    <h3>Datos Personales</h3>
-    <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Nombre:</label>
-      <div class="col-10">
-        <input class="form-control" type="text" value="" name="nombre" id="nombre-text-input">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-search-input" class="col-2 col-form-label">Apellidos</label>
-      <div class="col-10">
-        <input class="form-control" type="text" value="" name="apellidos" id="apellidos">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-email-input" class="col-2 col-form-label">Direccion</label>
-      <div class="col-10">
-        <input class="form-control" type="text" value="" name="direccion" id="iddireccion">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-tel-input" class="col-2 col-form-label">Telefono</label>
-      <div class="col-10">
-        <input class="form-control" type="tel" value="" name="telefono" id="telefono">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-tel-input" class="col-2 col-form-label">Email</label>
-      <div class="col-10">
-        <input class="form-control" type="email" value="" name="email" id="idemail">
-      </div>
-    </div>
-    
-    <div class="form-group row row btn pull-right">
-      <button class="btn btn-success">Next</button>
-    </div>
-  </div>
-</div>
-
-<!-- datos usuario -->
-<div class="row" *ngIf="activeIndex == 2">
-  <div class="container" id="idusaurio">
-    <h3>Datos de usuario</h3>
-    <div class="form-group row">
-      <label for="example-text-input" class="col-2 col-form-label">Nombre:</label>
-      <div class="col-10">
-        <input class="form-control" type="text" value="" name="nombre" id="nombre-text-input">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-search-input" class="col-2 col-form-label">Usuario</label>
-      <div class="col-10">
-        <input class="form-control" type="search" value="" name="apellidos" id="apellidos">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="example-password-input" class="col-2 col-form-label">Password</label>
-      <div class="col-10">
-        <input class="form-control" type="password" value="hunter2" id="password">
-      </div>
-    </div>
-    <div class="form-group row row btn pull-right">
-      <button class="btn btn-success">Next</button>
-    </div>
-  </div>
-</div>
-<div class="row" *ngIf="activeIndex == 3">
-    <div class="container" id="idconfirmar">
-      <h3>Comfirmacion</h3>
-      <div class="form-group row row btn">
-        <button class="btn btn-success">Confirmar</button>
-      </div>
-    
-</div>
-</div>
+ 
