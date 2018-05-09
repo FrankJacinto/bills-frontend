@@ -18,45 +18,36 @@ export class SignupComponent implements OnInit {
   items: MenuItem[];
   msgs: Message[] = [];
   activeIndex: number = 0;
-  //mis variables
-  public dataforms:String;
-  public section:boolean;
   //variable for calendar
   date3: Date;
   es: any;
   invalidDates: Array<Date>;
   minDate: Date;
-  tr:any;
+  tr: any;
   maxDate: Date;
   value: Date;
   //variables de registro
   public cargando: boolean = false;
   public listado: boolean = false;
-  public empresas: Empresa;
+  public empresa: Empresa;
   public empresaArray: Empresa[];
- 
+
   constructor(private activeModal: NgbActiveModal,
     private modal: NgbModal,
     public api: ApiRequestService,
     public apiRequest: ApiRequestService,
     public toastr: ToastrService,
-    public auth: AuthService)
-  {
-    this.dataforms="mis datos";
-    this.section=false;
-    this.empresas = new Empresa();
-
+    public auth: AuthService) {
+    this.empresa = new Empresa();
   }
   ngOnInit() {
-  
+
     this.items = [{
       label: 'Datos Empresa',
-        command: (event: any) => {
+      command: (event: any) => {
         this.activeIndex = 0;
         this.msgs.length = 0;
         this.msgs.push({ severity: 'info', summary: 'Datos Empresa', detail: event.item.label });
-        this.dataforms="datos empresa";
-      
       }
     },
     {
@@ -118,14 +109,13 @@ export class SignupComponent implements OnInit {
   }
 
   //guardar datos emmpresa
-  guardarDatosEmpresa(){
+  guardarDatosEmpresa() {
     this.cargando = true;
-    this.api.post("empresa", this.empresas).then(respuesta => {
+    this.api.post("empresa/crear", this.empresa).then(respuesta => {
       if (respuesta && respuesta.extraInfo) {
-        this.empresas = respuesta.extraInfo;
+        this.empresa = respuesta.extraInfo;
         this.toastr.success("Registro guardado exitosamente", 'Exito');
         this.cargando = false;
-        this.listado = true;
       } else {
         this.cargando = false;
         this.toastr.error(respuesta.operacionMensaje, 'Errror');
@@ -134,10 +124,9 @@ export class SignupComponent implements OnInit {
       .catch(err => this.handleError(err));
 
   };
-
   //metoddo private handle error
   private handleError(error: any): void {
-    this.toastr.info("Error Interno", 'Error');
+    this.toastr.error("Error Interno", 'Error');
     this.cargando = false;
   };
 

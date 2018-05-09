@@ -2,6 +2,9 @@
   <h3>Registrar Cliente Empresa</h3>
   <p-steps [model]="items" [(activeIndex)]="activeIndex" [readonly]="false" styleClass="steps-custom"></p-steps>   
 </div>
+<div class="container">
+  <p-steps [model]="items" styleClass="steps-custom"></p-steps>
+</div>
 <div class="row" *ngIf="activeIndex == 0">
   <div class="container" id="idempresa" id="step-1">
   <form (ngSubmit)="guardarDatosEmpresa()">
@@ -10,13 +13,13 @@
       <div class="form-group row">
         <label for="ruc" class="col-2 col-form-label">Ruc:</label>
         <div class="col-10">
-          <input class="form-control" type="text" value="" [(ngModel)]="empresas.ruc" name="nombre" id="idruc" maxlength="11" required>
+          <input class="form-control" type="text" value="" [(ngModel)]="empresa.ruc" name="nombre" id="idruc" maxlength="11" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="razon-social" class="col-2 col-form-label">Razon Social</label>
         <div class="col-10">
-          <input class="form-control" type="text" value="" [(ngModel)]="empresas.razonsocial" name="razon" id="idrazon" required>
+          <input class="form-control" type="text" value="" [(ngModel)]="empresa.razonsocial" name="razon" required>
         </div>
       </div>
       <div class="form-group row">
@@ -28,13 +31,13 @@
       <div class="form-group row">
         <label for="ubigeo" class="col-2 col-form-label">ID de Ubigeo</label>
         <div class="col-10">
-          <input class="form-control" type="text" value="" [(ngModel)]="empresas.idubigeo" name="ubigeo" id="idubigeo" required>
+          <input class="form-control" type="number" min ="1" value="" [(ngModel)]="empresa.idubigeo" name="ubigeo" required>
         </div>
       </div>
       <div class="form-group row">
         <label for="example-tel-input" class="col-2 col-form-label">Regimen</label>
         <div class="col-10">
-          <input class="form-control" type="number" value="" min ="0" maxlength="1" [(ngModel)]="empresas.idregimen" name="regimen" id="idregimen"required>
+          <input class="form-control" type="number" value="" min ="1" [(ngModel)]="empresa.idregimen" name="regimen" id="idregimen"required>
         </div>
       </div>
       <div class="form-group btn pull-right">
