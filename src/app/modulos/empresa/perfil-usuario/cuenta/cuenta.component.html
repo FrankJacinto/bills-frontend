@@ -1,28 +1,29 @@
-<div class="card" >
- <form #usuario="ngForm" (ngSubmit)="actualizarclave()">
-    <div class="card pb-0 mb-0" >
-      <div class="card-header">
-        <h1 align="center">Mi perfil</h1>
-        <p>Añade información personal a tu perfil para que sea compartida</p>
-      </div>
+<div class="card">
+  <form #usuario="ngForm" (ngSubmit)="actualizarclave()">
+    <div class="card-header">
+      <strong>Actualizar Clave</strong>
     </div>
-    <div class="card pt-0 mb-0">
-        <div class="body">
-          <div class="form-group">
-              <label >Contraseña</label>
-              <input type="password" class="form-control" [required]="isAntiguaPasswordValido" class="form-control form-control-lg" name="antiguaPassword" [(ngModel)]="password.antiguaPassword" maxlength="30" (keyup)="verificarPassword()">
-          </div>
-          <div class="form-group">
-              <input type="password" class="form-control" [required]="isAntiguaPasswordValido"  name="nuevaPassword" [(ngModel)]="password.nuevaPassword" maxlength="30" (keyup)="verificarPassword()" placeholder="Escriba su contraseña nueva" >
-          </div>
-          <div class="form-group">
-              <input type="password" class="form-control" [required]="isAntiguaPasswordValido" [ngClass]="{'is-invalid': !isNuevaPasswordValido && isAntiguaPasswordValido}" name="confirmarNuevaPassword" [(ngModel)]="password.confirmarNuevaPassword" (keyup)="verificarPassword()" maxlength="30" placeholder="Confirme su contraseña">
-          </div>
+    <div class="card-body">
+      <div class="form-group row">
+        <div class="col-md-12">
+          <label>Contraseña Actual</label>
+          <input type="password" class="form-control" required="" [required]="isAntiguaPasswordValido" class="form-control form-control-lg"
+            name="antiguaPassword" [(ngModel)]="password.antiguaPassword" maxlength="30" (keyup)="verificarPassword()">
+        </div>
+        <div class="col-md-12 pt-2">
+          <label>Contraseña Nueva</label>
+          <input type="password" class="form-control" required="" [required]="isAntiguaPasswordValido" name="nuevaPassword" [(ngModel)]="password.nuevaPassword"
+            maxlength="30" (keyup)="verificarPassword()">
+        </div>
+        <div class="col-md-12 pt-2">
+          <label>Contraseña Nueva</label>
+          <input type="password" class="form-control" required="" [required]="isAntiguaPasswordValido" [ngClass]="{'is-invalid': !isNuevaPasswordValido && isAntiguaPasswordValido}"
+            name="confirmarNuevaPassword" [(ngModel)]="password.confirmarNuevaPassword" (keyup)="verificarPassword()" maxlength="30">
         </div>
       </div>
-      <div class="card-footer ">
-        <button type="submit " class="btn btn-sm btn-primary" [disabled]="!usuario.form.valid"><i class="fa fa-dot-circle-o "></i> Cambiar Contraseña</button>
-      </div>
-    </form> 
-        <!--/.row-->
+    </div>
+    <div class="card-footer ">
+      <button type="submit" class="btn btn-primary btn-sm" [disabled]="!usuario.form.valid"> Cambiar Contraseña</button>
+    </div>
+  </form>
 </div>
