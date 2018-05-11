@@ -35,9 +35,15 @@ export class SignupComponent implements OnInit {
   //variabales para guardar datos personales
   public persona:Persona;
   public personaArray:Persona[];
+
   //variables api sunat
   public mostrarCampos=false; //mostrar campos de formulario empresa
-
+  public Ruc:String;
+  public RazonSocial: String;
+  public Direccion: String;
+  public Ubigeo: String;
+  public Result:boolean=false;
+ 
   constructor(private activeModal: NgbActiveModal,
     private modal: NgbModal,
     public api: ApiRequestService,
@@ -146,9 +152,9 @@ export class SignupComponent implements OnInit {
       .catch(err => this.handleError(err));
   };
   //traer datos API sunat, razon social, direccion, ubigeo
+  
   traerDatosSunat(){
     this.mostrarCampos=true;
-    alert("nombre: Kevin Quispe");
   }
  
 

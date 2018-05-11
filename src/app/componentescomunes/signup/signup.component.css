@@ -97,7 +97,8 @@ body {
       /* input */
         input[type=text],[type=text],[type=number] {
           border: 1px solid teal;
-          border-radius: 4px;  
+          border-radius: 4px;
+         
         }
         input[type=email],[type=password] {
           border: 1px solid teal;
@@ -115,3 +116,5 @@ body {
     .fa fa-search{
         padding: 20px;
     }
+   
+   
