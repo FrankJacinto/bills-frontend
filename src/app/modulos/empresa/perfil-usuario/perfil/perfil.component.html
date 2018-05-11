@@ -1,18 +1,16 @@
-
 <div class="card">
   <div class="card-header">
-    <h1 align="center">Mi perfil</h1>
-    <p>Añade información personal a tu perfil para que sea compartida</p>
+    <strong>Mi Perfil</strong>
   </div>
   <div class="card-body">
     <div class="row">
       <div class="col-md-6">
-        <label >Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="25" [(ngModel)]="persona.nombre" placeholder="Ingrese su nombre" >
+        <label>Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="25" [(ngModel)]="persona.nombre" placeholder="Ingrese su nombre">
       </div>
       <div class="col-md-6">
         <label for="nombre">Apellido</label>
-        <input type="text" class="form-control" id="apellido" name="apellido" maxlength="25" [(ngModel)]="persona.apellido" placeholder="Ingrese su apellido" >
+        <input type="text" class="form-control" id="apellido" name="apellido" maxlength="25" [(ngModel)]="persona.apellido" placeholder="Ingrese su apellido">
       </div>
     </div>
     <div class="row">
@@ -27,7 +25,9 @@
     </div>
   </div>
   <div class="card-footer text-right">
-    <button type="submit " class="btn btn-sm btn-primary " (click)="guardarUsuario()"><i class="fa fa-dot-circle-o "></i> Guardar Cambios</button>
-    <button type="reset " class="btn btn-sm btn-danger "><i class="fa fa-ban "></i> Cancelar</button>
+    <button type="submit " class="btn btn-sm btn-primary " (click)="guardarUsuario()">
+      <i class="fa fa-dot-circle-o "></i> Guardar Cambios</button>
+    <button type="reset " class="btn btn-sm btn-danger ">
+      <i class="fa fa-ban "></i> Cancelar</button>
   </div>
 </div>

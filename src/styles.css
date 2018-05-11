@@ -7,6 +7,8 @@
 }
 input {
   height: 25px!important;
+  border-radius: 0!important;
+  padding: 5px!important;
 }
 .list-group-item {
   cursor: pointer;
@@ -33,6 +35,14 @@ input {
 }
 .cursor-pointer {
   cursor: pointer;
+}
+.form-control:focus {
+  color: #5c6873;
+  background-color: #fff;
+  border-color: #4dbd74;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.0rem rgba(32,168,216,.25);
+  box-shadow: 0 0 0 0.0rem rgba(32,168,216,.25);
 }
 .carousel-indicators{
   bottom: -50px;
@@ -73,5 +83,8 @@ ngb-modal-window.modal.fade.show.d-block>div.modal-dialog.modal-sm>div.modal-con
 	top:-50px;
 	right:20px;
 	font-size:20px;
+}
+.card, .list-group-item {
+  border-radius: 0!important;
 }
 /*Fin estilos login*/
