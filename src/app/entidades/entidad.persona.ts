@@ -6,10 +6,10 @@ import {Empresa} from "./entidad.empresa";
 export class Persona{
     id:number;
     apellido:string;
-    cliente:string;
+    cliente:boolean;
     estado:boolean;
     idubigeo:Ubigeo;
     nombre:string;
-    proveedor:string;
+    proveedor:boolean;
     rucempresa:Empresa;
 }
