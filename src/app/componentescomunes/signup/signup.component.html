@@ -21,11 +21,11 @@
                 <label for="ruc" class="col-md-2 col-lg-2 col-form-label">Ruc:</label>
                   <div class="input-group-append col-md-10 col-lg-10" >
                     <input class="form-control" type="text" value="" [(ngModel)]="empresa.ruc" name="nombre" maxlength="11" required placeholder="ruc">
-                  <button type="button" class="btn btn-secondary" (click)="traerDatosSunat()">
+                  <button type="button" class="btn btn-sm btn btn-primary" (click)="traerDatosSunat()">
                     <i class="fa fa-search"></i>
                   </button>
                 </div>
-        
+    
               </div>
             
               <div *ngIf="mostrarCampos">
