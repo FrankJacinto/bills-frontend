@@ -19,37 +19,39 @@
               </div>
               <div class="form-group row">
                 <label for="ruc" class="col-md-2 col-lg-2 col-form-label">Ruc:</label>
-                <div class="col-md-10 col-lg-10">
-                  <input class="form-control" type="text" value="" [(ngModel)]="empresa.ruc" name="nombre" maxlength="11" required placeholder="ruc">
+                  <div class="input-group-append col-md-10 col-lg-10" >
+                    <input class="form-control" type="text" value="" [(ngModel)]="empresa.ruc" name="nombre" maxlength="11" required placeholder="ruc">
+                  <button type="button" class="btn btn-secondary" (click)="traerDatosSunat()">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </div>
+                
+              </div>
+            
+              <div *ngIf="mostrarCampos">
+                <div class="form-group row">
+                  <label for="razon-social" class="col-md-2 col-lg-2 col-form-label" onfocus="entroenfoco(this)" onblur="saliodefoco(this); camposobligatorios(this)">Razon Social</label>
+                  <div class="col-md-10 col-lg-10">
+                    <input class="form-control" type="text" value="" [(ngModel)]="empresa.razonsocial" name="razon" required placeholder="razón social">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="direccion-fiscal" class="col-md-2 col-lg-2 col-form-label" onfocus="entroenfoco(this)" onblur="saliodefoco(this); camposobligatorios(this)">Dirección Fiscal</label>
+                  <div class="col-md-10 col-lg-10">
+                    <input class="form-control" type="text" value="" name="razon" required placeholder="dirección fiscal">
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label for="direccion-fiscal" class="col-md-2 col-lg-2 col-form-label" onfocus="entroenfoco(this)" onblur="saliodefoco(this); camposobligatorios(this)">Ubigeo</label>
+                  <div class="col-md-10 col-lg-10">
+                    <input class="form-control" type="text" value="" name="razon" required placeholder="ubigeo">
+                  </div>
+                </div>
+                <div class="form-group row row btn pull-right">
+                  <button type="submit" class="btn btn-success" [disabled]="!formulario.form.valid">Next</button>
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="razon-social" class="col-md-2 col-lg-2 col-form-label" onfocus="entroenfoco(this)" onblur="saliodefoco(this); camposobligatorios(this)">Razon Social</label>
-                <div class="col-md-10 col-lg-10">
-                  <input class="form-control" type="text" value="" [(ngModel)]="empresa.razonsocial" name="razon" required placeholder="razon social">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="razon-social" class="col-md-2 col-lg-2 col-form-label">Fecha de Resgistro</label>
-                <div class="col-md-10 col-lg-10">
-                  <p-calendar [(ngModel)]="minDate" name="calendar" [locale]="es" styleClass="steps-custom ui-steps"></p-calendar>
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="ubigeo" class="col-md-2 col-lg-2 col-form-label">ID de Ubigeo</label>
-                <div class="col-md-10 col-lg-10">
-                  <input class="form-control" type="text" min="1" value="" [(ngModel)]="empresa.idubigeo" name="ubigeo" required placeholder="ubigeo">
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="example-tel-input" class="col-md-2 col-lg-2 col-form-label">Regimen</label>
-                <div class="col-md-10 col-lg-10">
-                  <input class="form-control" type="text" value="" min="1" [(ngModel)]="empresa.idregimen" name="regimen" required placeholder="regimen">
-                </div>
-              </div>
-              <div class="form-group row row btn pull-right">
-                <button  type="submit"class="btn btn-success" [disabled]="!formulario.form.valid">Next</button>
-              </div>
+              
             </form>
           </div>
         </div>
@@ -72,12 +74,6 @@
                   <input class="form-control" type="text" value="" name="apellidos" [(ngModel)]="persona.apellido" placeholder="ingrese apellidos" required>
                 </div>
               </div>
-              <div class="form-group row">
-                <label for="example-tel-input" class="col-2 col-form-label" name="ruc" [(ngModel)]="persona.ruc">Ruc Empresa</label>
-                <div class="col-10">
-                  <input class="form-control" type="text" value="" name="text" placeholder="ingrese ruc">
-                </div>
-              </div>
               <div class="form-group row btn pull-right">
                 <button type="submit" class="btn btn-success" [disabled]="!formulario.form.valid">Next</button>
               </div>
@@ -88,7 +84,7 @@
         <!-- datos usuario -->
         <div class="row" *ngIf="activeIndex ==2">
           <div class="container">
-            <form #formluario="ngForm" class="responsive">
+            <form class="responsive">
               <div class="form-group">
                 <h3>
                   <i class="fa fa-user" aria-hidden="true"></i>Datos de Usuario</h3>
@@ -112,7 +108,7 @@
                 </div>
               </div>
               <div class="form-group row row btn pull-right">
-                <button type="submit" class="btn btn-success" [disabled]="!formulario.form.valid">Next</button>
+                <button type="submit" class="btn btn-success">Next</button>
               </div>
             </form>
            
