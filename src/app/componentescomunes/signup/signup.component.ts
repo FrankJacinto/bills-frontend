@@ -131,14 +131,14 @@ export class SignupComponent implements OnInit {
   //metodo registrar datos persona
   guardarDatosPersona(){
     this.cargando=true;
-    this.api.post("persona/guardar", this.persona).then(respuesta => {
+    this.api.post("persona/crear", this.persona).then(respuesta => {
       if (respuesta && respuesta.extraInfo) {
         this.persona = respuesta.extraInfo;
         this.toastr.success("Registro guardado exitosamente", 'Exito');
         this.cargando = false;
       } else {
         this.cargando = false;
-        this.toastr.error(respuesta.operacionMensaje, 'Errror');
+        this.toastr.error(respuesta.operacionMensaje, 'Error');
       }
     })
       .catch(err => this.handleError(err));
