@@ -1,9 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
-.app-footer {
+.sidebar-lg-show :not(.sidebar-show) .app-footer {
   padding: 1rem 1rem!important;
-  position: absolute;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  margin-left: 0!important;
+}
+.sidebar-lg-show .app-footer {
+  padding: 1rem 1rem!important;
+  position: fixed;
   bottom: 0;
   width: calc(100% - 200px);
+}
+.app-footer {
+  padding: 1rem 1rem!important;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
 input {
   height: 25px!important;
