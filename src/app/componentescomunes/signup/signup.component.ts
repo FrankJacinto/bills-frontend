@@ -152,14 +152,9 @@ export class SignupComponent implements OnInit {
       .catch(err => this.handleError(err));
   };
   //traer datos API sunat, razon social, direccion, ubigeo
-  
   traerDatosSunat(){
     this.mostrarCampos=true;
   }
- 
-
-
-
   //metoddo private handle error
   private handleError(error: any): void {
     this.toastr.error("Error Interno", 'Error');
