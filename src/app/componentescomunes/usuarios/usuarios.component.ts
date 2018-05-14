@@ -9,8 +9,6 @@ export class UsuariosComponent implements OnInit {
 
   cars1: any = [];
   cols: any = [];   
-  data: any = [];
-  colss: any = [];
   
   constructor() { }
 
