@@ -62,7 +62,7 @@ export class SignupComponent implements OnInit {
       }
     },
     {
-      label: 'Confirmation',
+      label: 'Confirmación',
       command: (event: any) => {
         this.activeIndex = 3;
       }
