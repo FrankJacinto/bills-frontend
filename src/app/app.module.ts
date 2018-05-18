@@ -10,6 +10,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StepsModule } from 'primeng/steps';
+import { MenuItem } from 'primeng/api';
 import {AppConfig} from './servicioscomunes/app-config';
 import {ApiRequestService} from './servicioscomunes/api-request.service';
 import {AuthService} from './servicioscomunes/auth.service';
@@ -22,7 +24,6 @@ import { ScrollToModule } from '@nicky-lenaers/ngx-scroll-to';
   declarations: [
     AppComponent,
     LoginComponent,
-    
   ],
   entryComponents: [
     LoginComponent
