@@ -112,9 +112,16 @@ body {
         color: #23282c;
         background-color: #c8ced3;
         border-color: #c8ced3;
-}
+    }
     .fa fa-search{
         padding: 20px;
     }
-   
-   
+   .posicion-form-datos{
+    margin-right: -300px;
+    margin-top: -330px;
+   }
+    .posicion-form-usuario{
+    margin-right: -650px;
+    margin-top: -260px;
+   }
+  
