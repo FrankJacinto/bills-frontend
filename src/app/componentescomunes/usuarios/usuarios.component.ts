@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class UsuariosComponent implements OnInit {
 
   cars1: any = [];
-  cols: any = [];
+  cols: any = [];   
   
   constructor() { }
 

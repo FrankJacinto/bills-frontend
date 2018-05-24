@@ -1,0 +1,11 @@
+ .a{
+       background: #20a8d8;
+       border-radius: 5px;
+       padding: 4px;
+   }
+.a:hover{
+     border-radius:solid 5px;
+     background: white;
+     color: #20a8d8;
+     
+}
